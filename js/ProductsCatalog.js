@@ -1,10 +1,16 @@
+fetch('/outputV2.json').then(
+
+ res=>res.json()
+).then(
+  (d)=>localStorage.setItem('products',JSON.stringify(d))
+)
 let RangeObj = {
     1: [5000, 10000],
     2: [10000, 20000],
     3: [20000, 70000],
     4: [0, 700000],
   };
-  let data = JSON.parse(localStorage.getItem("data"));
+  let data = JSON.parse(localStorage.getItem("products"));
   let pramas = new URLSearchParams(window.location.search);
   let sellers = pramas.getAll("Seller");
   let category = pramas.getAll("category");
