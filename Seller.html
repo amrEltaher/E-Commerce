@@ -7,12 +7,9 @@
     <title>Ebrahim Admin Dashboard</title>
     <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- fontawesome -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-
     <script src="assets/js/jquery.slimscroll.min.js"></script>
-
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap4.min.js"></script>
 
@@ -70,7 +67,7 @@
               >
                 <li class="sidebar-item">
                   <a
-                    href="javascript:void(0)"
+                    href="addProduct.html"
                     class="sidebar-link"
                     id="AddProduct"
                     >Add Product</a
@@ -82,7 +79,7 @@
                   >
                 </li>
                 <li class="sidebar-item">
-                  <a href="javascript:void(0)" class="sidebar-link" id="EditProduct"
+                  <a href="javscript:void(0)" class="sidebar-link" id="EditProduct"
                     >Edit Product</a
                   >
                 </li>
@@ -104,39 +101,23 @@
                 data-bs-parent="#sidebar"
               >
                 <li class="sidebar-item">
-                  <a href="javascript:void(0)"
-                   class="sidebar-link">test 1</a>
+                  <a href="ordersList.html"
+                   class="sidebar-link">OrdersList</a>
                 </li>
                 <li class="sidebar-item">
-                  <a href="javascript:void(0)" class="sidebar-link">test 2</a>
+                  <a href="editPurchuase.html"
+                   class="sidebar-link">EditPurchuase</a>
+                </li>
+                <li class="sidebar-item">
+                  <a href="ordersList.html" class="sidebar-link">Orders List</a>
                 </li>
               </ul>
             </li>
-            <!-- <li class="sidebar-item">
-                        <a href="javascript:void(0)" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
-                            aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
-                            Auth
-                        </a>
-                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">Login</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">Register</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">Forgot Password</a>
-                            </li>
-                        </ul>
-                    </li> -->
           </ul>
         </div>
       </aside>
       <div class="main">
         <nav class="navbar navbar-expand px-3 border-bottom">
-          <!-- <button class="btn" id="sidebar-toggle" type="button">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
           <button class="btn" id="sidebar-toggle" type="button">
             <span class="fas fa-bars"></span>
         </button>
@@ -160,6 +141,7 @@
             </ul>
           </div>
         </nav>
+        
         <main class="px-3 py-2">
           <div class="container-fluid mainContet">
            
@@ -167,12 +149,7 @@
             </div>
           </div>
         </main>
-        <div class="container mt-5">
-          <div class="content" id="productFormContainer">
-            <!-- The dynamic product form will be rendered here -->
-          </div>
-        </div>
-
+        <!-- Footer -->
         <footer class="footer">
           <div class="container-fluid">
             <div class="row text-muted">
@@ -207,7 +184,6 @@
   </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="js/script.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
   
 </html>
