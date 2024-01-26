@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- import jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="alternate" hreflang="" href="" />
+</head>
+
+
+<body class="checkout-page">
+
+    
+        <div class="container inner-page-hero title-container ">
+        </div>
+      <!-- img data-v-post-image src="img/bg-img/bg-7.jpg" alt="" -->
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+      <div data-if-not="order.id_order">
+        <form>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-7">
+                <div class="card">
+                  <div class="card-body">
+
+                    <div id="checkout-shipping-container" class="shipping_address mb-2">
+                      <h5>Checkout</h5>
+                      <div class="row">
+                        <!-- <div class="mb-3 col-6">
+                          <label class="col-form-label" for="first_name">First Name <span class="text-danger text-small">*</span></label>
+                          <input type="text" class="form-control" id="first_name" name="shipping_address[first_name]" required pattern="[A-Za-z]+" title="Please enter a valid first name (letters only)">
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="col-form-label" for="last_name">Last Name <span class="text-danger text-small">*</span></label>
+                          <input type="text" class="form-control" id="last_name" name="shipping_address[last_name]" required pattern="[A-Za-z]+" title="Please enter a valid last name (letters only)">
+                        </div> -->
+                        <!-- <div class="mb-3 col-12">
+                          <label class="col-form-label" for="email">Email Address <span class="text-danger text-small">*</span></label>
+                          <input type="email" class="form-control" id="email" name="shipping_address[email]" required title="Please enter a valid email address">
+                        </div> -->
+                        <div class="col-12 mb-3">
+                          <label class="col-form-label" for="country">Country <span class="text-danger text-small">*</span></label>
+                          <select class="form-select" id="shipping_country_id" name="shipping_address[country_id]" required>
+                            <option value="">Select Country</option>
+                            <option value="1">Egypt</option>
+                            <option value="2">Saudi Arabia</option>
+                            <option value="3">United Arab Emirates</option>
+                          </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                          <label class="col-form-label" for="street_address">Shipping Address <span class="text-danger text-small">*</span></label>
+                          <input type="text" class="form-control mb-3" id="street_address" name="shipping_address[address_1]" required title="Please enter your street address" placeholder="Street address">
+                          <input type="text" class="form-control" id="appartment" name="shipping_address[address_2]" placeholder="Apartment, suite, unit etc. (optional)">
+                        </div>
+                        <div class="col-12 mb-3">
+                          <label class="col-form-label" for="city">Town/City <span class="text-danger text-small">*</span></label>
+                          <input type="text" class="form-control" id="shipping_city" name="shipping_address[city]" required title="Please enter your town/city">
+                        </div>
+                        <div class="col-12 mb-3">
+                          <label class="col-form-label" for="post_code">Postcode <span class="text-danger text-small">*</span></label>
+                          <input type="text" class="form-control" id="shipping_post_code" name="shipping_address[post_code]" required pattern="[0-9]{5}" title="Please enter a valid 5-digit postcode">
+                        </div>
+                        <!-- <div class="col-12 mb-3">
+                          <label class="col-form-label" for="state">Province <span class="text-danger text-small">*</span></label>
+                          <input type="text" class="form-control" id="shipping_region_id" name="shipping_address[region_id]" required title="Please enter your province">
+                        </div> -->
+                        <div class="col-12 mb-3">
+                          <label class="col-form-label" for="phone_number">Phone No <span class="text-danger text-small">*</span></label>
+                          <input type="tel" class="form-control" id="phone_number" name="shipping_address[phone_number]" required pattern="[0-9]+" title="Please enter a valid phone number">
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                    
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-5 ms-lg-auto">
+                <div class="card">
+                  <div class="card-body">
+
+                    <div class="cart-summary">
+                      <div class="table-responsive mb-3">
+                        <table class="table cart-table align-middle border-bottom mb-0">
+                          <tbody id="checkout-sum">
+
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="p-3 pt-0" data-v-if="cart.total_items">
+                        <div class="table-responsive mb-2">
+                          <table class="table mb-0 " cellspacing="2">
+                            <tfoot>
+                              <tr>
+                                <td colspan="5" class="text-end">
+                                  <small>Sub-Total</small>:
+                                </td>
+                                <td class="text-end">
+                                  <span id="subtotal">$101.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="5" class="text-end">
+                                  <small>Eco Tax (2.00):</small>
+                                </td>
+                                <td class="text-end" id="ecotax">$2.00</td>
+                              </tr>
+                              <tr data-v-cart-total>
+                                <td colspan="5" class="text-end">
+                                  <small >VAT (19%):</small>
+                                </td>
+                                <td class="text-end" id="vat">$20.20</td>
+                              </tr>
+                              <!-- <tr data-v-cart-total>
+                                <td colspan="5" class="text-end">
+                                  <small>Total:</small>
+                                </td>
+                                <td class="text-end">$123.20</td>
+                              </tr> -->
+                              <tr>
+                                <td colspan="5" class="text-end">Total:</td>
+                                <td class="text-end" id="total">$0</td>
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                      </div>
+                    </div>  
+                      <!-- <div class="list-group mb-3">
+                        <div class="list-group-item" >
+                          <div class="small">-10% Discount</div>
+                          <span class="badge bg-success-subtle text-body me-2 code" >discount10</span>
+                        </div>
+                        <div class="list-group-item" >
+                          <div class="small" >Free shipping</div>
+                          <span class="badge bg-success-subtle text-body me-2 code" >freeship</span>
+                         
+                        </div>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" name="coupon" class="form-control" id="coupon_code" placeholder="Coupon Code" aria-label="Coupon Code">
+                        <button class="btn btn-outline-primary btn-sm btn-coupon px-4" type="button">
+                          <span class="button-text">Apply </span>
+                        </button>
+                      </div>
+                    </div>
+
+                    
+                    <h6>Payment</h6>
+                    <div name="accordion" role="tablist" class="accordion mb-3">
+
+                      <div class="accordion-item">
+                        <div class="accordion-header" role="tab">
+                          <label class="form-check-label accordion-button collapsed" aria-expanded="false" role="button">
+                            <input class="form-check-input me-2" type="radio" name="payment_method" value="default">
+                            <span>Cash</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <div class="accordion-header" role="tab">
+                          <label class="form-check-label accordion-button collapsed" aria-expanded="false" role="button">
+                            <input class="form-check-input me-2" type="radio" name="payment_method" value="default" >
+                            <span >Credit card </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="alert alert-warning d-flex alert-dismissable" role="alert">
+                        <div class="icon align-middle me-2">
+                          <i class="align-middle la la-2x lh-1 la-exclamation-triangle"></i>
+                        </div>
+                        <div class="flex-grow-1 align-self-center text-small">
+                          No payment methods enabled!
+                        </div>
+
+                        <button type="button" class="btn-close align-middle" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div> -->
+                    </div>
+                    <button id="submit" type="submit" href="" class="btn btn-primary my-2 w-100">
+                      Place order 
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <div class="bg-image"></div>
+
+  <div class="alert alert-light alert-dismissible fade alert-top" role="alert" style="display:none">
+    <div class="container">
+
+      <div class="message">
+        Order created successfully
+      </div>
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  <script src="checkout.js"></script>
+</body>
+</html>

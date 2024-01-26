@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cart</title>
+  <!-- <link id="landing-css" href="style.bundle.css" rel="stylesheet" media="screen"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+    
+</head>
+
+<body>
+  <main id="site-content" role="main">
+    <div class="container">
+      <div id="cart-container">
+        <form action="" method="post" enctype="multipart/form-data" data-v-if="this.cart.total_items">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card mb-4">
+                <div class="table-responsive card-body cart-table p-0">
+                  <table class="table align-middle" >
+                    <thead class="table-lig2ht">
+                      <tr>
+                        <th class="col-3">Image</th>
+                        <th class="col-3">Name</th>
+                        <th class="col-3">Quantity</th>
+                        <th class="col-3">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cart">
+                   
+                     <!-- <tr>
+                        <td class="col-3">
+                          <img src="./smartscreens/screen_img11.jpg" loading="lazy" alt="Product name" class="img-rounded" width="80" loading="lazy">
+                        </td>
+                        <td class="col-3">
+                          <a href="">
+                            <span>Product name</span>
+                          </a>
+                          <div class=" price">
+                            <span>$246.40</span>
+                          </div>
+                        </td>
+                        <td class="col-3 text-center">
+                          <div class="quantity">
+                            <div class="input-group">
+                              <button class="btn btn-minus btn-sm">-</button>
+                              <label for="quantity"></label>
+                              <input name="quantity" value="1" size="1" min="1" class="form-control form-control-sm" type="number" data-v-cart-product-quantity>
+                              <button class="btn btn-plus btn-sm">+</button>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="col-3 text-end total px-4">
+                          <span>$246.40</span>
+                        </td>
+                      </tr> -->
+                    </tbody>
+                   
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 cart-right-column">
+              <div class="card">
+                <div class="card-body p-4">
+                  <div class="table-responsive mb-2">
+                    <table class="table mb-0" cellspacing="0">
+                      <tbody id="summary">
+                        <!-- <tr>
+                          <td colspan="6" class="text-end">
+                            <small>Sub-Total:</small>
+                          </td>
+                          <td class="text-end">
+                            <span class="text-end">$101.00</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="text-end">
+                            <small>Eco Tax (2.00):</small>
+                          </td>
+                          <td class="text-end">$2.00</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="text-end">
+                            <small>VAT (19%):</small>
+                          </td>
+                          <td class="text-end">$20.20</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="text-end">
+                            <small>Total:</small>
+                          </td>
+                          <td class="text-end">$123.20</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="text-end fw-semibold">Total:</td>
+                          <td class="text-end fw-semibold">$0</td>
+                        </tr> -->
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                  <!-- <div class="input-group mb-3">
+                    <input type="text" name="coupon" class="form-control" id="coupon_code" placeholder="Coupon Code" aria-label="Coupon Code">
+                    <button class="btn btn-outline-primary btn-sm btn-coupon px-4" type="button">
+                      <span class="loading d-none">
+                        <span class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span>
+                        <span>Applying ...</span>
+                      </span>
+                      <span class="button-text">Apply <i class="la la-arrow-right float-end ms-2"></i></span>
+                    </button>
+                  </div> -->
+                  <div class="mx-2 mt-5 mb-2">
+                    <a href="/checkout.html" class="btn btn-primary d-block">Checkout <i class="la la-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+ 
+      <script src="cart.js" type="module"> </script>
+
+</body>
+
+</html>
