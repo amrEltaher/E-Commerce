@@ -10,11 +10,11 @@ cartitems.forEach(function (cartItem) {
   var cartItemHTML = `<tr>
     <td class="text-center">
       <a href="#40">
-        <img src="${cartItem.image}" style="height: 90px; width:100px ;" alt="Product name" loading="lazy" class="img-rounded">
+        <img src="${cartItem.pic}" style="height: 90px; width:100px ;" alt="Product name" loading="lazy" class="img-rounded">
       </a>
     </td>
     <td class="">
-      <a href="#40" class="d-block">${cartItem.name}</a>
+      <a href="#40" class="d-block">${cartItem.title}</a>
     </td>
     <td class="text-end">
       <span class="text-small">

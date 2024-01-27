@@ -1,19 +1,23 @@
-class CartItem {
-  constructor(image, name, quantity, price) {
-    this.image = image;
-    this.name = name;
-    this.quantity = quantity;
-    this.price = price;
-  }
+fetch('./outputV2.json').then(res => res.json()).then((d) => localStorage.setItem('products', JSON.stringify(d)))
 
-  addItemToCart(cartitem) {
+var products = JSON.parse(localStorage.getItem('products'))
+console.log(products);
+var cart = [{ id: "143", quantity: 2, catogery: "watchs" }, { id: "30", quantity: 1, catogery: "laptops" }]
+var cartItems = []
+cart.forEach((item) => {
+  cartitem=products[item.catogery][item.id];
+  cartitem.quantity=item.quantity;
+  cartItems.push(cartitem)
+})
+
+  function addItemToCart(cartitem) {
     var itemDiv = `<tr>
       <td class="col-3">
-        <img src=${cartitem.image} loading="lazy" alt="Product name" class="img-rounded" width="80" loading="lazy">
+        <img src=${cartitem.pic} loading="lazy" alt="Product name" class="img-rounded" width="80" loading="lazy">
       </td>
       <td class="col-3">
         <a href="">
-          <span>${cartitem.name}</span>
+          <span>${cartitem.title}</span>
         </a>
         <div class=" price">
           <span>${cartitem.price}$  </span>
@@ -68,41 +72,40 @@ class CartItem {
       itemTotal.textContent = (cartitem.price * cartitem.quantity).toFixed(2);
       updateSummarySection(cartitems);
     });
-        //one change of text input
-        inputQuantity.addEventListener("change", function (event) {
-          event.preventDefault();
-          if (inputQuantity.value > 0) {
-            cartitem.quantity = inputQuantity.value;
-            itemTotal.textContent = (cartitem.price * cartitem.quantity).toFixed(2);
-            updateSummarySection(cartitems);
-          } else {
-            // Remove the row
-            item.remove();
-            var index = cartitems.indexOf(cartitem);
-            if (index > -1) {
-              cartitems.splice(index, 1);
-              updateSummarySection(cartitems);
-            }
-          }
-        }
-    
-        );
-        
-  }
-  
-}
 
-var cartitems = [];
-var cartitem = new CartItem("./smartscreens/screen_img8.jpg", "Name1", 1, 20);
-cartitems.push(cartitem);
-cartitem = new CartItem("smartscreens/screen_img8.jpg", "Name2", 1, 30);
-cartitems.push(cartitem);
-cartitem = new CartItem("smartscreens/screen_img4.jpg", "Name3", 1, 60);
-cartitems.push(cartitem);
-for (var i = 0; i < cartitems.length; i++) {
-  cartitems[i].addItemToCart(cartitems[i]);
-}
-updateSummarySection(cartitems);
+    //one change of text input
+    inputQuantity.addEventListener("change", function (event) {
+      event.preventDefault();
+      if (inputQuantity.value > 0) {
+        cartitem.quantity = inputQuantity.value;
+        itemTotal.textContent = (cartitem.price * cartitem.quantity).toFixed(2);
+        updateSummarySection(cartitems);
+      } else {
+        // Remove the row
+        item.remove();
+        var index = cartitems.indexOf(cartitem);
+        if (index > -1) {
+          cartitems.splice(index, 1);
+          updateSummarySection(cartitems);
+        }
+      }
+    });
+  }
+
+  // var cartitems = [];
+  // var cartitem = new CartItem("./smartscreens/screen_img8.jpg", "Name1", 1, 20);
+  // cartitems.push(cartitem);
+  // cartitem = new CartItem("smartscreens/screen_img8.jpg", "Name2", 1, 30);
+  // cartitems.push(cartitem);
+  // cartitem = new CartItem("smartscreens/screen_img4.jpg", "Name3", 1, 60);
+  // cartitems.push(cartitem);
+  cartitems=cartItems;
+
+  for (var i = 0; i < cartitems.length; i++) {
+    addItemToCart(cartitems[i]);
+  }
+  cartitems=cartItems;
+  updateSummarySection(cartitems);
 
 function updateSummarySection(CartItems) {
   var totalprice = 0;
