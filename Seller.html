@@ -40,14 +40,50 @@
                     <div><i class="fa-solid fa-cart-shopping"></i></div>
                     <div>Products</div>
                 </div>
+                <div class="p-4 text-white text-center btn side-item Products Edit-prod">
+                    <div><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div>Edit Product</div>
+                </div>
+                <div class="p-4 text-white text-center btn side-item Products Add-prod">
+                    <div><i class="fa-solid fa-plus"></i></div>
+                    <div>Add Product</div>
+                </div>
 
             </div>
             <div class="container content">
-
+               
               
             </div>
-  
-           
+            <div class="modal fade " id="exampleModal" tabindex="-1" style="position: fixed; top: 0;" >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-details">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
     
