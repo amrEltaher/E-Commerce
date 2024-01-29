@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="/signup.css">
+    <link rel="stylesheet" href="terms&services.html">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style></style>
+</head>
+
+<body>
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="termsPopUp" tabindex="-1" aria-labelledby="termsPopUpLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #1A244D;">
+                    <h4 class="modal-title" id="termsPopUpLabel" style="color:#FFCC57;">Terms and Conditions</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
+                    <h1>Terms and Conditions of Use</h1>
+                    <h2>1. Terms</h2>
+                    <p>By accessing this Website, accessible from http://127.0.0.1:5500/SignUp.html, you are agreeing to be bound by these Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable local laws. If you disagree with any of these terms, you are prohibited from accessing this site. The materials contained in this Website are protected by copyright and trade mark law.</p>
+                    <h2>2. Use License</h2>
+                    <p>Permission is granted to temporarily download one copy of the materials on electronic store's Website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                    <ul>
+                        <li>modify or copy the materials;</li>
+                        <li>use the materials for any commercial purpose or for any public display;</li>
+                        <li>attempt to reverse engineer any software contained on electronic store's Website;</li>
+                        <li>remove any copyright or other proprietary notations from the materials; or</li>
+                        <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
+                    </ul>
+                   <p>This will let electronic store to terminate upon violations of any of these restrictions. Upon termination, your viewing right will also be terminated and you should destroy any downloaded materials in your possession whether it is printed or electronic format. These Terms of Service has been created with the help of the <a href="https://www.termsofservicegenerator.net">Terms Of Service Generator</a>.</p>
+                    <h2>3. Disclaimer</h2>
+                    <p>All the materials on electronic store's Website are provided "as is". electronic store makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, electronic store does not make any representations concerning the accuracy or reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.</p>
+                    <h2>4. Limitations</h2>
+                    <p>electronic store or its suppliers will not be hold accountable for any damages that will arise with the use or inability to use the materials on electronic store's Website, even if electronic store or an authorize representative of this Website has been notified, orally or written, of the possibility of such damage. Some jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental damages, these limitations may not apply to you.</p>
+                    <h2>5. Revisions and Errata</h2>
+                    <p>The materials appearing on electronic store's Website may include technical, typographical, or photographic errors. electronic store will not promise that any of the materials in this Website are accurate, complete, or current. electronic store may change the materials contained on its Website at any time without notice. electronic store does not make any commitment to update the materials.</p>
+                    <h2>6. Links</h2>
+                    <p>electronic store has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by electronic store of the site. The use of any linked website is at the user's own risk.</p>
+                    <h2>7. Site Terms of Use Modifications</h2>
+                    <p>electronic store may revise these Terms of Use for its Website at any time without prior notice. By using this Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.</p>
+                    <h2>8. Your Privacy</h2>
+                   <p>Please read our Privacy Policy.</p>
+                    <h2>9. Governing Law</h2>
+                    <p>Any claim related to electronic store's Website shall be governed by the laws of eg without regards to its conflict of law provisions.</p>                    <!-- Agreement checkbox -->
+                </div>
+                <div class="modal-footer">
+                    <div class="form-check mx-auto">
+                        <input class="form-check-input" type="checkbox" value="" id="modalAgreeCheckbox">
+                        <label class="form-check-label" for="modalAgreeCheckbox" id="termschecklabel">I agree to all statements</label>
+                        <label class="form-check-label text-danger" for="modalAgreeCheckbox" id="modalcheckboxError" style="display: none;">Please confirm terms</label>
+                    </div>
+                    <div class="btns mx-auto">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveChanges()">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function saveChanges() {
+                var modalAgreeCheckbox = document.getElementById("modalAgreeCheckbox");
+                var signupAgreeCheckbox = document.getElementById("agreeCheckbox");
+                // Check the signup checkbox if the modal checkbox is checked
+                if (modalAgreeCheckbox.checked) {
+                    signupAgreeCheckbox.checked = true;
+                    $('#termsPopUp').modal('hide');
+
+                } else {
+                    $('#modalcheckboxError').show();
+                    return false;
+                }
+            }
+        </script>
+        
+    </div>  
+
+    <!-- Sign-up Section -->
+    <section class="signup_container">
+        <div class="signup">
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" id="signup_card" style="border-radius: 15px ">
+                            <div class="card-body p-5 pb-2 pt-4">
+                                <h2 class="text-uppercase text-center mb-2">Create an account</h2>
+                                <form>
+                                    <div class="form-floating mb-2">
+                                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                            placeholder="User name" />
+                                        <label class="form-label" for="form3Example1cg">Your Name</label>
+                                        <div id="nameError" class="text-danger"></div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="email" id="form3Example3cg" class="form-control form-control-lg"
+                                            placeholder="Email" />
+                                        <label class="form-label" id="useremail" for="form3Example3cg">Your Email</label>
+                                        <div id="emailError" class="text-danger"></div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="password" id="form3Example4cg" class="form-control form-control-lg"
+                                            placeholder="Password" />
+                                        <label class="form-label" id="userpassword" for="form3Example4cg">Password</label>
+                                        <div id="passwordError" class="text-danger"></div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
+                                            placeholder="Confirm password" />
+                                        <label class="form-label" id="confirmpassword" for="form3Example4cdg">Repeat your
+                                            password</label>
+                                        <div id="confirmpasswordError" class="text-danger"></div>
+                                    </div>
+                                    <div class="d-flex flex-wrap  .flex-column-reverse mb-2">
+                                        <div>
+                                            <select id="usertype" name="UserType" class="mb-2" style="border-radius: 15px;">
+                                                <option value="0">Select User Type</option>
+                                                <option value="customer">Customer</option>
+                                                <option value="seller">Seller</option>
+                                            </select>
+                                            <div id="usertypeError" class="text-danger"></div>
+                                            <label id="typelabel" for="usertype" class="form-check-label">Select your type</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-check d-flex justify-content-left mb-3">
+                                        <input class="form-check-input me-2" type="checkbox" value=""
+                                            id="agreeCheckbox" />
+                                        <label class="form-check-label" for="agreeCheckbox">
+                                            I agree all statements in <a href="#" class="text-body"
+                                                data-bs-toggle="modal" data-bs-target="#termsPopUp"><u
+                                                    id="trsv">Terms of service</u></a>
+                                        </label>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button"
+                                            class="btn btn-success btn-block btn-lg signupBTN text-body"
+                                            id="reg_btn">Register</button>
+                                    </div>
+
+                                    <p class="text-center text-muted mt-4 mb-0">Have already an account? <a
+                                            href="login.html" class="fw-bold text-body"><u>Login here</u></a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        console.log(JSON.parse(localStorage.getItem("userArray"))||[]);
+        document.getElementById("reg_btn").addEventListener('click', function () {
+            // Validation functions
+            function validateName(name) {
+                return name.length > 3 && name.length < 10;
+            }
+
+            function validateEmail(email) {
+                var emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return emailRegex.test(email);
+            }
+
+            function validatePassword(password) {
+                return password.length >= 6; // You can adjust the minimum length
+            }
+
+            // Fetch input values
+            var userNameInput = document.getElementById("form3Example1cg");
+            var userEmailInput = document.getElementById("form3Example3cg");
+            var userPasswordInput = document.getElementById("form3Example4cg");
+            var userConfirmPasswordInput = document.getElementById("form3Example4cdg");
+            var userTypeInput = document.getElementById("usertype").value;
+            var agreeCheckbox = document.getElementById("agreeCheckbox").checked;
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+            document.getElementById("confirmpasswordError").textContent = "";
+            document.getElementById("trsv").style.color = ""; // Reset the border color
+            document.getElementById("usertypeError").textContent = "";
+            // Validate inputs
+            if (!validateName(userNameInput.value)) {
+                document.getElementById("nameError").textContent = "Name should be between 4 and 9 characters.";
+                userNameInput.style.border = "2px solid red";
+                return;
+            } else {
+                userNameInput.style.borderColor = ""; // Reset the border color
+            }
+
+            if (!validateEmail(userEmailInput.value)) {
+                document.getElementById("emailError").textContent = "Invalid email address.";
+                userEmailInput.style.border = "2px solid red";
+                return;
+            } else {
+                userEmailInput.style.border = ""; // Reset the border color
+            }
+
+            if (!validatePassword(userPasswordInput.value)) {
+                document.getElementById("passwordError").textContent = "Password should be at least 6 characters long.";
+                userPasswordInput.style.border = "2px solid red";
+                return;
+            } else {
+                userPasswordInput.style.borderColor = ""; // Reset the border color
+            }
+
+            if (userPasswordInput.value !== userConfirmPasswordInput.value) {
+                document.getElementById("confirmpasswordError").textContent = "Passwords do not match.";
+                userConfirmPasswordInput.style.border = "2px solid red";
+                return;
+            } else {
+                userConfirmPasswordInput.style.borderColor = ""; // Reset the border color
+            }
+
+            if (!agreeCheckbox) {
+                document.getElementById("trsv").style.color = "red";
+                return;
+            } else {
+                document.getElementById("trsv").style.color = ""; // Reset the border color
+            }
+            if(userTypeInput == 0){
+                document.getElementById("usertype").style.border = "2px solid red";
+                document.getElementById("typelabel").textContent = "";
+                document.getElementById("usertypeError").textContent = "Please select your type";
+                return;
+            }
+            else{
+                document.getElementById("usertype").style.border = ""; // Reset the border color
+                document.getElementById("typelabel").textContent = "Select your type";
+                document.getElementById("usertypeError").textContent = "";
+            }
+            // Register the user if all validations pass
+            var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
+            for (var i = 0; i < existingUserData.length; i++) {
+                if (userEmailInput.value === existingUserData[i].userEmail) {
+                    document.getElementById("emailError").textContent = "This email already exists.";
+                    userEmailInput.style.border = "2px solid red";
+                    return;
+                }
+            }
+            users = JSON.parse(localStorage.getItem("userArray")) || []
+            var userData = {
+                userType: userTypeInput,
+                userName: userNameInput.value,
+                userEmail: userEmailInput.value,
+                userPassword: userPasswordInput.value,
+                id : genID()
+            };
+            existingUserData.push(userData);
+            localStorage.setItem("userArray", JSON.stringify(existingUserData));
+           
+           
+         
+        });
+        function genID(){
+            var id = 0;
+            do{
+                var id = Math.floor(Math.random() * 10000)
+            }while(users.find(user => user.id === id))
+            return id;
+        }
+    </script>
+</body>
+
+</html>

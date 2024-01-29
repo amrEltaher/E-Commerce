@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Store - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <style>
+          @keyframes fadeIn {
+          0% {
+              opacity: 0.6;
+          }
+          100% {
+              opacity: 1.2;
+          }
+      }
+
+      .animated-heading {
+          animation: fadeIn 2s ease-out infinite;
+          animation-delay: 2s;
+      }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetpassPopUpLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="resetpassPopUpLabel">Reset Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="resetPasswordForm">
+                ////////////////////////////////
+                <div class="">
+                <input type="email" id="rstEmail">
+                <label for="rstEmail">Please Enter Your Email</label>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div> -->
+    <section class="signin_container">
+        <div class="container vh-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card text-white" id="signin_card" style="border-radius: 15px;">
+                        <div class="card-body p-5 text-center">
+                            <div>
+                                <h1 class="text-uppercase mb-2 animated-heading"><div class="logo">
+                                        <a href="#Home" style="color: #1A244D; text-decoration: none;">
+                                            <h4 style="font-family: cinzel;">Quantum Tech <i class="fas fa-laptop" style="color:#1A244D;"></i></h4>
+                                        </a>
+                                  </div></h1>
+                                <h2 class="fw-bold mb-3">Login</h2>
+                                <p class="mb-2">Please enter your email and password.</p>
+                                <form id="loginForm">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg fs-6"
+                                            aria-setsize="width:20" placeholder="Email address" required />
+                                        <label class="text-dark" for="typeEmailX"><i
+                                                class="fas fa-user fa-lg me-3 fa-fw"
+                                                style="color: #1A244D;"></i>Email address</label>
+                                                <div id="emailError" class="text-danger"></div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="password" id="typePasswordX"
+                                            class="form-control form-control-lg fs-6" placeholder="Password" required />
+                                        <label class="text-dark" for="typePasswordX"><i
+                                                class="fas fa-lock fa-lg me-3 fa-fw"
+                                                style="color: #1A244D;"></i>Password</label>
+                                                <div id="passwordError" class="text-danger"></div>
+                                    </div>
+
+                                    <p class="small mb-5 pb-lg-2">Forgot your password?<a class="text-50" style="color: #1A244D;" data-bs-toggle="" data-bs-target="#resetPasswordModal" href="">Reset password</a></p>
+
+                                    <button class="btn btn-outline-light btn-lg px-5" id="login_btn" type="submit">Login
+                                    </button>
+                                </form>
+
+                                <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                                    <a href="#" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                    <a href="#" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="mb-0">Don't have an account? <a href="SignUp.html"
+                                        class="text-white-50 fw-bold">Sign Up</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        <script>
+            document.getElementById("login_btn").addEventListener("click", function (event) {
+                // Prevent the default form submission
+                event.preventDefault();
+
+                // Fetch input values
+                var userEmailInput = document.getElementById("typeEmailX");
+                var userPasswordInput = document.getElementById("typePasswordX");
+
+                // Reset previous error messages
+                document.getElementById("emailError").textContent = "";
+                document.getElementById("passwordError").textContent = "";
+
+                // Validate inputs
+                var isValid = true;
+
+                if (!validateEmail(userEmailInput.value)) {
+                    document.getElementById("emailError").textContent = "Invalid email address.";
+                    isValid = false;
+                }
+
+                if (!validatePassword(userPasswordInput.value)) {
+                    document.getElementById("passwordError").textContent = "Password is required.";
+                    isValid = false;
+                }
+
+                // If all validations pass, check against stored data in local storage
+                if (isValid) {
+                    var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
+                    var foundUser = existingUserData.find(function (user) {
+                        return user.userEmail === userEmailInput.value && user.userPassword === userPasswordInput.value;
+                    });
+                   // var userRole = foundUser.userType;
+                    if (foundUser) {
+                        // Successful login, so redirect bbased on user type 
+                        alert("Login successful");
+                        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+                        // Store the current user in local storage
+                        redirectToDashboard(foundUser.userType);                  
+                    } else {
+                        // Invalid credentials
+                        document.getElementById("emailError").textContent = "Invalid email or password.";
+                    }
+
+                }
+            });
+
+            // Validation functions (same as before)
+            function validateEmail(email) {
+                var emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return emailRegex.test(email);
+            }
+
+            function validatePassword(password) {
+                return password.trim() !== "";
+            }
+            function redirectToDashboard(userType) {
+                switch (userType) {
+                    case "customer":
+                        window.location.href = "products.html";
+                        break;
+                    case "seller":
+                        window.location.href = "Seller.html";
+                        break;
+                    case "admin":
+                        window.location.href = "admin_dashboard.html";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            // Function to retrieve the current user from local storage
+            function getCurrentUser() {
+                return JSON.parse(localStorage.getItem("currentUser")) || null;
+            }
+            // Example of how to use the getCurrentUser function
+            var currentUser = getCurrentUser();
+            console.log("Current user:", currentUser);
+        </script>
+    </body>
+</html>

@@ -1,9 +1,8 @@
-fetch('/outputV2.json').then(
-
- res=>res.json()
-).then(
-  (d)=>localStorage.setItem('products',JSON.stringify(d))
-)
+user = JSON.parse(localStorage.getItem('currentUser'));
+  if(!user){
+    location.href = '/login.html'
+  }
+  userId = user.id;
 let RangeObj = {
     1: [5000, 10000],
     2: [10000, 20000],
@@ -55,56 +54,8 @@ let RangeObj = {
     }
     return filteredProducts;
   }
-  /*
-    function RenderTable(ArrayOfProducts) {
-      for (const key in ArrayOfProducts) {
-        for (const item in ArrayOfProducts[key]) {
-          if (ArrayOfProducts[key][item]["title"].length > 30) {
-            ArrayOfProducts[key][item]["title"] =
-              ArrayOfProducts[key][item]["title"].slice(0, 20) + "...";
-          }
-
-          $("#data-container").append(
-            `<a
-        href=${"/product.html?category=" + key + "&id=" + item}
-        class="text-decoration-none col-lg-3 col-md-4 col-sm-6 col-12"
-      >
-        <div class="p-2 shadow rounded">
-          <img src="${
-            ArrayOfProducts[key][item]["pic"]
-          }" alt="" class="col-12 item-img" />
-          <div class="px-3">
-            <div class="h7 item-title">${
-              ArrayOfProducts[key][item]["title"]
-            }</div>
-            <div class="d-flex mt-1 rating text-info align-items-center">
-              <i class="fa-solid fa-star" style="color: yellow"></i>
-              <i class="fa-solid fa-star" style="color: yellow"></i>
-              <i class="fa-solid fa-star" style="color: yellow"></i>
-              <i class="fa-solid fa-star" style="color: yellow"></i>
-              <i class="fa-solid fa-star"></i>
-              <span class="pl-2 text-secondary">(120)</span>
-            </div>
-            <div>
-              <span class="text-danger h5 item-price">${
-                ArrayOfProducts[key][item]["price"]
-              } EGP</span>
-            </div>
-          </div>
-          <div class="btn btn-outline-primary form-control mt-3">
-            Add To Cart
-          </div>
-        </div>
-      </a>
-     `
-          );
-        }
-      }
-    }
-*/
   const RenderProducts = function (ArrayOfProducts) {
-    let cart = localStorage.getItem("cart");
-    cart = cart ? JSON.parse(cart) : {};
+    let cart = JSON.parse (localStorage.getItem("cart"));
     $("#data-container").get(0).innerHTML = "";
     for (let i = 0; i < ArrayOfProducts.length; i++) {
       if (ArrayOfProducts[i].title.length > 30) {
@@ -139,7 +90,7 @@ let RangeObj = {
         </div>
       </div>
       </a>
-      ${cart[ArrayOfProducts[i].category + "-" + ArrayOfProducts[i].id] !== undefined ? 
+      ${cart[userId][ArrayOfProducts[i].category + "-" + ArrayOfProducts[i].id] !== undefined ?
       `<input value = "Remove From Cart" class="Remove btn btn-outline-primary form-control mt-3 " data-id=${ArrayOfProducts[i].id} data-cat=${ArrayOfProducts[i].category}>`:
       `<input value = "Add To Cart" class="Add btn btn-danger form-control mt-3 " data-id=${ArrayOfProducts[i].id} data-cat=${ArrayOfProducts[i].category}>`
       }
@@ -174,8 +125,7 @@ let RangeObj = {
     if(e.target.classList.contains('Remove')){
       delete cart[cat+'-'+id];
     }else{
-     cart = {
-      ...cart,
+     cart[userId][cat+'-'+id] = {
       [cat+'-'+id]:{
         count:1,
       }
