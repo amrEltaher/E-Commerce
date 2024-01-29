@@ -1,4 +1,5 @@
-  //open and close side bar
+
+//open and close side bar
   function openmenu(){
     document.getElementById("side-bar").style.display="block";
     document.getElementById("menu-btn").style.display="none";
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         accountLink.innerHTML = `<a href="HomePage.html"><i class="fa-solid fa-user"></i> Hello, ${userFirstName}</a>`;
     } else {
         // If the user is not signed in, display the default "Hello, Sign In" link
-        accountLink.innerHTML = '<a href="SignInPage.html"><i class="fa-solid fa-user"></i> Hello, Sign In</a>';
+        accountLink.innerHTML = '<a href="login.html"><i class="fa-solid fa-user"></i> Hello, Sign In</a>';
     }
 });
 
