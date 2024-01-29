@@ -14,7 +14,7 @@
     },
     "1416": {
       "title": "Huawei Watch GT 4 , Smart Watch, Silver Case- Black Strap",
-      "price": "11,200",
+      "price": "11200",
       "pic": "/smartwatchs/watch_img8.jpg",
       "sellerId": "1000",
       "specs": {
@@ -158,7 +158,7 @@
     },
     "8880": {
       "title": "Samsung Galaxy Watch5 Pro BT Smart Watch, 45 mm - Gray Titanium",
-      "price": "12,999",
+      "price": "12999",
       "pic": "/smartwatchs/watch_img15.jpg",
       "sellerId": "4000",
       "specs": {
@@ -641,14 +641,8 @@
         "resolution": "4K UHD",
         "smart_feature": true,
         "built_in_receiver": false
-<<<<<<<<< Temporary merge branch 1
       },
       "sellerId": "5000"
     }
   }
 }
-=========
-      }
-    }
-  }}
->>>>>>>>> Temporary merge branch 2
