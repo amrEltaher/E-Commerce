@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Add Product</title>
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- fontawesome -->
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+<!--  -->
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <!-- boxicons -->
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet"/>
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>   
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <style>
+    .icon-frame {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <body>
+    <div class="wrapper" style="background-color: rgb(250,251,254);">
+      <aside id="sidebar" class="js-sidebar">
+        <!-- Content For Sidebar -->
+        <div class="h-100">
+          <div class="sidebar-logo">
+            <a href="javascript:void(0)">Ebrhim</a>
+          </div>
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Admin Elements</li>
+            <li class="sidebar-item">
+              <a href="javascript:void(0)" class="sidebar-link" id="home">
+                <i class="fa-solid fa-list pe-2" ></i>
+                Dashboard
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                href="javascript:void(0)"
+                class="sidebar-link collapsed"
+                data-bs-target="#pages"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+                ><i class="fa-solid fa-file-lines pe-2"></i>
+                Products
+              </a>
+              <ul
+                id="pages"
+                class="sidebar-dropdown list-unstyled collapse"
+                data-bs-parent="#sidebar"
+              >
+                <li class="sidebar-item">
+                  <a
+                    href="javascript:void(0)"
+                    class="sidebar-link"
+                    id="AddProduct"
+                    >Add Product</a
+                  >
+                </li>
+                <li class="sidebar-item">
+                  <a href="javascript:void(0)" class="sidebar-link" id="ProductList"
+                    >Product List</a
+                  >
+                </li>
+                <li class="sidebar-item">
+                  <a href="javascript:void(0)" class="sidebar-link" id="EditProduct"
+                    >Edit Product</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar-item">
+              <a
+              href="javascript:void(0)"
+              class="sidebar-link collapsed"
+                data-bs-target="#posts"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+                ><i class="fa-solid fa-sliders pe-2"></i>
+                Orders
+              </a>
+              <ul
+                id="posts"
+                class="sidebar-dropdown list-unstyled collapse"
+                data-bs-parent="#sidebar"
+              >
+                <li class="sidebar-item">
+                  <a href="javascript:void(0)"
+                   class="sidebar-link">test 1</a>
+                </li>
+                <li class="sidebar-item">
+                  <a href="javascript:void(0)" class="sidebar-link">test 2</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <div class="main">
+        <nav class="navbar navbar-expand px-3 border-bottom">
+          <button class="btn" id="sidebar-toggle" type="button">
+            <span class="fas fa-bars"></span>
+        </button>
+        
+          <div class="navbar-collapse navbar">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                  <img
+                    src="image/profile.jpg"
+                    class="avatar img-fluid rounded"
+                    alt=""
+                  />
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a href="javascript:void(0)" class="dropdown-item">Profile</a>
+                  <a href="javascript:void(0)" class="dropdown-item">Setting</a>
+                  <a href="javascript:void(0)" class="dropdown-item">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="px-3 py-2">
+          <div class="container-fluid mainContet">
+            <div class="content">
+              <div class="page-header">
+                <div class="page-title">
+                  <h4>Sales List</h4>
+                  <h6>Manage your sales</h6>
+                </div>
+               
+              </div>
+    
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-top">
+                    <div class="search-set">
+                      <div class="search-path">
+                        <a class="btn btn-filter" id="filter_search">
+                          <img src="assets/img/icons/filter.svg" alt="img" />
+                          <span
+                            ><img src="assets/img/icons/closes.svg" alt="img"
+                          /></span>
+                        </a>
+                      </div>
+                      <div class="search-input">
+                        <a class="btn btn-searchset"
+                          ><img src="assets/img/icons/search-white.svg" alt="img"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="table-responsive">
+                    <table class="table datanew">
+                      <thead>
+                        <tr>
+                          <th>
+                            <label class="checkboxs">
+                              <input type="checkbox" id="select-all" />
+                              <span class="checkmarks"></span>
+                            </label>
+                          </th>
+                          <th>Date</th>
+                          <th>Customer Name</th>
+                          <th>Reference</th>
+                          <th>Status</th>
+                          <th>Payment</th>
+                          <th>Total</th>
+                          <th>Paid</th>
+                          <th>Due</th>
+                          <th>Biller</th>
+                          <th class="text-center">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label class="checkboxs">
+                              <input type="checkbox" />
+                              <span class="checkmarks"></span>
+                            </label>
+                          </td>
+                          <td>walk-in-customer</td>
+                          <td>19 Nov 2022</td>
+                          <td>SL0101</td>
+                          <td>
+                            <span class="badges bg-lightgreen">Completed</span>
+                          </td>
+                          <td><span class="badges bg-lightgreen">Paid</span></td>
+                          <td>0.00</td>
+                          <td>0.00</td>
+                          <td class="text-red">100.00</td>
+                          <td>Admin</td>
+                          <td class="text-center">
+                            <a
+                              class="action-set"
+                              href="javascript:void(0);"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="true"
+                            >
+                              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a href="sales-details.html" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/eye1.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Sale Detail</a
+                                >
+                              </li>
+                              <li>
+                                <a href="edit-sales.html" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/edit.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Edit Sale</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#showpayment"
+                                  ><img
+                                    src="assets/img/icons/dollar-square.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Show Payments</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#createpayment"
+                                  ><img
+                                    src="assets/img/icons/plus-circle.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Create Payment</a
+                                >
+                              </li>
+                              <li>
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/download.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Download pdf</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item confirm-text"
+                                  ><img
+                                    src="assets/img/icons/delete1.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Delete Sale</a
+                                >
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkboxs">
+                              <input type="checkbox" />
+                              <span class="checkmarks"></span>
+                            </label>
+                          </td>
+                          <td>walk-in-customer</td>
+                          <td>19 Nov 2022</td>
+                          <td>SL0103</td>
+                          <td>
+                            <span class="badges bg-lightgreen">Completed</span>
+                          </td>
+                          <td><span class="badges bg-lightgreen">Paid</span></td>
+                          <td>0.00</td>
+                          <td class="text-green">100.00</td>
+                          <td>0.00</td>
+                          <td>Admin</td>
+                          <td class="text-center">
+                            <a
+                              class="action-set"
+                              href="javascript:void(0);"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="true"
+                            >
+                              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a href="sales-details.html" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/eye1.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Sale Detail</a
+                                >
+                              </li>
+                              <li>
+                                <a href="edit-sales.html" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/edit.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Edit Sale</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#showpayment"
+                                  ><img
+                                    src="assets/img/icons/dollar-square.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Show Payments</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#createpayment"
+                                  ><img
+                                    src="assets/img/icons/plus-circle.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Create Payment</a
+                                >
+                              </li>
+                              <li>
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/download.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Download pdf</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item confirm-text"
+                                  ><img
+                                    src="assets/img/icons/delete1.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Delete Sale</a
+                                >
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkboxs">
+                              <input type="checkbox" />
+                              <span class="checkmarks"></span>
+                            </label>
+                          </td>
+                          <td>Fred C. Rasmussen</td>
+                          <td>19 Nov 2022</td>
+                          <td>SL0104</td>
+                          <td><span class="badges bg-lightred">Pending</span></td>
+                          <td><span class="badges bg-lightred">Due</span></td>
+                          <td>0.00</td>
+                          <td class="text-green">100.00</td>
+                          <td>0.00</td>
+                          <td>Admin</td>
+                          <td class="text-center">
+                            <a
+                              class="action-set"
+                              href="javascript:void(0);"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="true"
+                            >
+                              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a href="sales-details.html" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/eye1.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Sale Detail</a
+                                >
+                              </li>
+                              <li>
+                                <a href="edit-sales.html" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/edit.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Edit Sale</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#showpayment"
+                                  ><img
+                                    src="assets/img/icons/dollar-square.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Show Payments</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#createpayment"
+                                  ><img
+                                    src="assets/img/icons/plus-circle.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Create Payment</a
+                                >
+                              </li>
+                              <li>
+                                <a href="javascript:void(0);" class="dropdown-item"
+                                  ><img
+                                    src="assets/img/icons/download.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Download pdf</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="javascript:void(0);"
+                                  class="dropdown-item confirm-text"
+                                  ><img
+                                    src="assets/img/icons/delete1.svg"
+                                    class="me-2"
+                                    alt="img"
+                                  />Delete Sale</a
+                                >
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-start">
+                <p class="mb-0">
+                  <a href="javascript:void(0)" class="text-muted">
+                    <strong>Ebrahim</strong>
+                  </a>
+                </p>
+              </div>
+              <div class="col-6 text-end">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">Contact</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">About Us</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">Terms</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">Booking</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script2.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  
+</html>

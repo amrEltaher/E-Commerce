@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- fontawesome -->
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+    <!--  -->
+    <script
+      src="https://kit.fontawesome.com/ae360af17e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Roboto Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <style>
+    .icon-frame {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <body>
+    <div class="wrapper" style="background-color: rgb(250, 251, 254)">
+      <aside id="sidebar" class="js-sidebar">
+        <!-- Content For Sidebar -->
+        <div class="h-100">
+          <div class="sidebar-logo">
+            <a href="javascript:void(0)">Ebrhim</a>
+          </div>
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Admin Elements</li>
+            <li class="sidebar-item">
+              <a href="javascript:void(0)" class="sidebar-link" id="home">
+                <i class="fa-solid fa-list pe-2" ></i>
+                Dashboard
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                href="javascript:void(0)"
+                class="sidebar-link collapsed"
+                data-bs-target="#pages"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+                ><i class="fa-solid fa-file-lines pe-2"></i>
+                Products
+              </a>
+              <ul
+                id="pages"
+                class="sidebar-dropdown list-unstyled collapse"
+                data-bs-parent="#sidebar"
+              >
+                <li class="sidebar-item">
+                  <a
+                    href="addProduct.html"
+                    class="sidebar-link"
+                    id="AddProduct"
+                    >Add Product</a
+                  >
+                </li>
+                <li class="sidebar-item">
+                  <a href="productList.html" class="sidebar-link" id="ProductList"
+                    >Product List</a
+                  >
+                </li>
+                <li class="sidebar-item">
+                  <a href="javscript:void(0)" class="sidebar-link" id="EditProduct"
+                    >Edit Product</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar-item">
+              <a
+              href="javascript:void(0)"
+              class="sidebar-link collapsed"
+                data-bs-target="#posts"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+                ><i class="fa-solid fa-sliders pe-2"></i>
+                Orders
+              </a>
+              <ul
+                id="posts"
+                class="sidebar-dropdown list-unstyled collapse"
+                data-bs-parent="#sidebar"
+              >
+                <li class="sidebar-item">
+                  <a href="ordersList.html"
+                   class="sidebar-link">PurchuaseList</a>
+                </li>
+                <li class="sidebar-item">
+                  <a href="editPurchuase.html"
+                   class="sidebar-link">EditPurchuase</a>
+                </li>
+                <li class="sidebar-item">
+                  <a href="javascript:void(0)" class="sidebar-link">Orders List</a>
+                </li>
+              </ul>
+            </li>
+                  </ul>
+        </div>
+      </aside>
+      <div class="main">
+        <nav class="navbar navbar-expand px-3 border-bottom">
+          <button class="btn" id="sidebar-toggle" type="button">
+            <span class="fas fa-bars"></span>
+        </button>
+        
+          <div class="navbar-collapse navbar">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                  <img
+                    src="image/profile.jpg"
+                    class="avatar img-fluid rounded"
+                    alt=""
+                  />
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a href="javascript:void(0)" class="dropdown-item">Profile</a>
+                  <a href="javascript:void(0)" class="dropdown-item">Setting</a>
+                  <a href="javascript:void(0)" class="dropdown-item">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+        <main class="px-3 py-2">
+          <div class="container-fluid mainContet">
+            <div class="content">
+              <div class="page-header">
+                <div class="page-title">
+                  <h4>Order Details</h4>
+                  <h6>View Order details</h6>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-sales-split">
+                    <h2>Order Detail: "write order Id"</h2>
+                  </div>
+
+                  <div
+                    class="container"
+                    style="max-width: 1600px; margin: 15px auto"
+                  >
+                    <div class="row mb-4">
+                      <!-- Customer Info -->
+                      <div class="col-md-3">
+                        <h6>Customer Info</h6>
+                        <p>
+                          Ebrahim-customer<br />
+                          <a href="mailto:email@example.com"
+                            >email@example.com</a
+                          ><br />
+                          123456780<br />
+                          N45, Dhaka
+                        </p>
+                      </div>
+
+                      <!-- Company Info -->
+                      <div class="col-md-3">
+                        <h6>Seller Info</h6>
+                        <p>
+                          DGT<br />
+                          <a href="mailto:email@example.com"
+                            >email@example.com</a
+                          ><br />
+                          6315996770<br />
+                          3618 Abia Martin Drive
+                        </p>
+                      </div>
+
+                      <!-- Bill Info -->
+                      <div class="col-md-3">
+                        <h6>Bill Info</h6>
+                        <p>
+                          Reference<br />
+                          Payment Status<br />
+                          Status
+                        </p>
+                      </div>
+
+                      <!-- Bill Details -->
+                      <div class="col-md-3">
+                        <p>
+                          &nbsp;<br />
+                          SL0101<br />
+                          <span style="color: #2e7d32">Paid</span><br />
+                          <span style="color: #2e7d32">Completed</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Product Table -->
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class="bg-light">
+                          <tr>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">QTY</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">TAX</th>
+                            <th scope="col">Subtotal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Product Rows -->
+                          <!-- Repeat this block for each product -->
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src="assets/img/product/product1.jpg"
+                                  alt="img"
+                                  class="me-2"
+                                  style="width: 40px; height: 40px"
+                                />
+                                Macbook pro
+                              </div>
+                            </td>
+                            <td>1.00</td>
+                            <td>1500.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>1500.00</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                <img
+                                  src="assets/img/product/product8.jpg"
+                                  alt="img"
+                                  class="me-2"
+                                  style="width: 40px; height: 40px"
+                                />
+                                Samsung
+                              </div>
+                            </td>
+                            <td>1.00</td>
+                            <td>8000.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>1500.00</td>
+                          </tr>
+                          <!-- ... other product rows ... -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="row mt-4">
+                    <div class="col-lg-12 d-flex justify-content-end">
+                      <a href="javascript:void(0);" class="btn btn-primary me-2"
+                        >Update</a
+                      >
+                      <a href="javascript:void(0);" class="btn btn-secondary"
+                        >Cancel</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-start">
+                <p class="mb-0">
+                  <a href="javascript:void(0)" class="text-muted">
+                    <strong>Ebrahim</strong>
+                  </a>
+                </p>
+              </div>
+              <div class="col-6 text-end">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">Contact</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">About Us</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">Terms</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="javascript:void(0)" class="text-muted">Booking</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script2.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</html>

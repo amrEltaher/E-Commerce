@@ -252,18 +252,27 @@
                     return;
                 }
             }
+            users = JSON.parse(localStorage.getItem("userArray")) || []
             var userData = {
                 userType: userTypeInput,
                 userName: userNameInput.value,
                 userEmail: userEmailInput.value,
-                userPassword: userPasswordInput.value
+                userPassword: userPasswordInput.value,
+                id : genID()
             };
-
             existingUserData.push(userData);
             localStorage.setItem("userArray", JSON.stringify(existingUserData));
-
-            alert("Registered successfully!");
+           
+           
+         
         });
+        function genID(){
+            var id = 0;
+            do{
+                var id = Math.floor(Math.random() * 10000)
+            }while(users.find(user => user.id === id))
+            return id;
+        }
     </script>
 </body>
 
