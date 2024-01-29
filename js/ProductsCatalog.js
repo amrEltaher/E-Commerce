@@ -55,13 +55,15 @@ let RangeObj = {
     return filteredProducts;
   }
   const RenderProducts = function (ArrayOfProducts) {
-    let cart = JSON.parse (localStorage.getItem("cart"));
+     cart = JSON.parse (localStorage.getItem("cart")) || {[userId]:{}};
+    console.log(cart);
     $("#data-container").get(0).innerHTML = "";
     for (let i = 0; i < ArrayOfProducts.length; i++) {
-      if (ArrayOfProducts[i].title.length > 30) {
+      if (ArrayOfProducts[i].title.length > 20) {
         ArrayOfProducts[i].title =
-          ArrayOfProducts[i].title.slice(0, 20) + "...";
+          ArrayOfProducts[i].title.slice(0, 15) + "...";
       }
+      
       $("#data-container").append(
         `<div
     
@@ -77,14 +79,7 @@ let RangeObj = {
       <img src="${ArrayOfProducts[i].pic}" alt="" class="col-12 item-img" />
       <div class="px-3">
         <div class="h7 item-title">${ArrayOfProducts[i].title}</div>
-        <div class="d-flex mt-1 rating text-info align-items-center">
-          <i class="fa-solid fa-star" style="color: yellow"></i>
-          <i class="fa-solid fa-star" style="color: yellow"></i>
-          <i class="fa-solid fa-star" style="color: yellow"></i>
-          <i class="fa-solid fa-star" style="color: yellow"></i>
-          <i class="fa-solid fa-star"></i>
-          <span class="pl-2 text-secondary">(120)</span>
-        </div>
+
         <div>
           <span class="text-danger h5 item-price">${ArrayOfProducts[i].price} EGP</span>
         </div>
@@ -121,14 +116,13 @@ let RangeObj = {
     let id = $(this).data('id');
     let cat = $(this).data('cat');
     console.log(id , cat);
-    let cart = JSON.parse(localStorage.getItem('cart')) || {};
     if(e.target.classList.contains('Remove')){
-      delete cart[cat+'-'+id];
+      delete cart[userId][cat+'-'+id];
     }else{
      cart[userId][cat+'-'+id] = {
-      [cat+'-'+id]:{
-        count:1,
-      }
+      
+        quantity:1,
+     
     }
     }
     localStorage.setItem('cart',JSON.stringify(cart));
