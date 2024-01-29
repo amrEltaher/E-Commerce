@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #site-content {
+    flex: 1;
+  }
+  #submit{
+    background-color: #1A244D !important;
+  }
+
+
+.header {
+    background-color:rgb(33, 43, 54);
+    height: 90px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+      justify-content: center;
+}
+.logo{
+  max-width: 200px;
+  width: 100%;
+  display: flex;
+    align-items: center;
+    justify-content: center; 
+   }
+.Search-box {
+    width: 50%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.input-group-text {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    text-align: right;
+}
+
+  .menu-bar{
+    margin-right:50PX;
+    width: 50%;
+    text-align: right;
+
+
+  } 
+   
+  .menu-bar ul li{
+    padding: 20px ;
+    text-align: center;
+    cursor: pointer;
+  } 
+
+
+  .menu-bar ul li a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+ 
+.header i {
+  color: #ffffff !important; 
+  
+}
+
+.header a {
+  color: #ffffff !important; 
+}
+
+.menu-bar ul li:hover a,
+.menu-bar ul li:hover i,
+.header h4:hover i,
+.header h4:hover p {
+  color: #FFCC57 !important;
+}
+
+
+  
+
+  @media only screen and (max-width: 980px) {
+    .header {
+        height: 150px;
+        border-bottom: 0;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .Search-box {
+      margin-top: 50px;
+        width: 100%;
+        height: 50px;
+    }
+   
+
+    .menu-bar {
+        background-color:rgb(33, 43, 54);
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+
+    }
+
+    .menu-bar ul {
+        margin: 10px 0;
+        width: 100%;
+        display: flex; 
+        justify-content: center; 
+    }
+
+    .menu-bar ul li {
+    height: 60px;
+    }
+  }
+  
+  .footer {
+    background-color: #1A244D;
+    color: #DCF2F1;
+    box-sizing: border-box;
+    margin-top: auto; 
+  }
+  
+  .footer a:hover p,
+  .footer a:hover i {
+    color: #ffcc57 !important;
+  }
