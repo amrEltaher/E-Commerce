@@ -1,0 +1,105 @@
+{
+    "1000": {
+      "Name": "Forsan",
+      "Products": [
+        {"category": "watchs", "product_id": "143"},
+        {"category": "watchs", "product_id": "1416"},
+        {"category": "watchs", "product_id": "4042"},
+        {"category": "laptops", "product_id": "30"},
+        {"category": "laptops", "product_id": "201"},
+        {"category": "laptops", "product_id": "508"},
+        {"category": "laptops", "product_id": "536"},
+        {"category": "laptops", "product_id": "828"},
+        {"category": "laptops", "product_id": "967"},
+        {"category": "laptops", "product_id": "3297"},
+        {"category": "laptops", "product_id": "6482"},
+        {"category": "laptops", "product_id": "8413"}
+      ],
+      "Total_Sold": 0
+    },
+    "2000": {
+      "Name": "Sigma",
+      "Products": [
+        {"category": "watchs", "product_id": "5423"},
+        {"category": "watchs", "product_id": "5457"},
+        {"category": "watchs", "product_id": "5487"},
+        {"category": "watchs", "product_id": "6955"},
+        {"category": "watchs", "product_id": "7090"},
+        {"category": "laptops", "product_id": "747"},
+        {"category": "laptops", "product_id": "828"},
+        {"category": "laptops", "product_id": "1406"},
+        {"category": "laptops", "product_id": "4575"},
+        {"category": "laptops", "product_id": "5649"},
+        {"category": "laptops", "product_id": "5842"},
+        {"category": "laptops", "product_id": "6085"},
+        {"category": "laptops", "product_id": "6485"},
+        {"category": "laptops", "product_id": "8217"}
+      ],
+      "Total_Sold": 0
+    },
+    "3000": {
+      "Name": "Amazon",
+      "Products": [
+        {"category": "watchs", "product_id": "7363"},
+        {"category": "watchs", "product_id": "7761"},
+        {"category": "watchs", "product_id": "7828"},
+        {"category": "laptops", "product_id": "3356"},
+        {"category": "laptops", "product_id": "4117"},
+        {"category": "laptops", "product_id": "4579"},
+        {"category": "laptops", "product_id": "7218"},
+        {"category": "laptops", "product_id": "7373"},
+        {"category": "laptops", "product_id": "7458"},
+        {"category": "laptops", "product_id": "8127"},
+        {"category": "laptops", "product_id": "8311"}
+      ],
+      "Total_Sold": 0
+    },
+    "4000": {
+      "Name": "Noon",
+      "Products": [
+        {"category": "watchs", "product_id": "8236"},
+        {"category": "watchs", "product_id": "8357"},
+        {"category": "watchs", "product_id": "8880"},
+        {"category": "laptops", "product_id": "6049"},
+        {"category": "laptops", "product_id": "6482"},
+        {"category": "laptops", "product_id": "6485"},
+        {"category": "laptops", "product_id": "9077"},
+        {"category": "laptops", "product_id": "9522"}
+      ],
+      "Total_Sold": 0
+    },
+    "5000": {
+      "Name": "Carrefour",
+      "Products": [
+        {"category": "screens", "product_id": "128"},
+        {"category": "screens", "product_id": "354"},
+        {"category": "screens", "product_id": "1967"},
+        {"category": "screens", "product_id": "3395"},
+        {"category": "screens", "product_id": "3569"},
+        {"category": "screens", "product_id": "4177"},
+        {"category": "screens", "product_id": "4575"},
+        {"category": "screens", "product_id": "4816"},
+        {"category": "screens", "product_id": "5378"},
+        {"category": "screens", "product_id": "8920"},
+        {"category": "screens", "product_id": "9683"}
+      ],
+      "Total_Sold": 0
+    },
+    "6000": {
+      "Name": "Souq",
+      "Products": [
+        {"category": "screens", "product_id": "5378"},
+        {"category": "screens", "product_id": "8920"},
+        {"category": "laptops", "product_id": "5649"},
+        {"category": "laptops", "product_id": "5649"},
+        {"category": "laptops", "product_id": "5842"},
+        {"category": "laptops", "product_id": "6085"},
+        {"category": "laptops", "product_id": "6485"},
+        {"category": "laptops", "product_id": "8217"},
+        {"category": "laptops", "product_id": "8311"},
+        {"category": "laptops", "product_id": "8413"}
+      ],
+      "Total_Sold": 0
+    }
+  }
+  
