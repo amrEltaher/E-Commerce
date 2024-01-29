@@ -1,6 +1,6 @@
 user = JSON.parse(localStorage.getItem('currentUser'))|{};
   if(user.userType  == undefined){
-    location.href = '/login.html'
+
   }
 
 let sellers = JSON.parse(localStorage.getItem('sellers'))
