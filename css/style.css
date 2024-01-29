@@ -1,5 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet');
+.user-img {
+    position: relative;
+    display: inline-block;
+}
 
+.user-img img {
+    margin-top: 0;
+    border-radius: 50%; /* Make the image circular */
+}
+
+.user-img .status {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #28a745; /* Green color for online status */
+    border-radius: 50%;
+    border: 2px solid #fff; /* White border for visibility */
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet');
+.profilename {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.profileset, .profilesets {
+    padding: 3px 10px;
+}
+
+.profileset h6 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #212b36;
+}
+
+.profilesets h6 {
+    font-size: 14px;
+    color: #bfccd8;
+}
+
+.user-img img {
+    margin-top: 0;
+}
+
+.dropdown-item {
+    padding: 8px 5px !important;
+}
+
+
+
+
+/* Bootstrap spacing utilities for margin */
+.mb-0 {
+    margin-bottom: 0 !important;
+}
 .icon-frame {
       width: 60px;
       height: 60px;

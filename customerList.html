@@ -5,17 +5,14 @@
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favIcon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Orderslist</title>
+  <title> customerList</title>
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favIcon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="assets/css/animate.css">
-
 
   <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
 
@@ -52,11 +49,11 @@
               Products
             </a>
             <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-
+              
               <li class="sidebar-item">
                 <a href="productList.html" class="sidebar-link" id="ProductList">Product List</a>
               </li>
-
+              
             </ul>
           </li>
           <li class="sidebar-item">
@@ -109,15 +106,23 @@
           </ul>
         </div>
       </nav>
+
       <main class="px-3 py-2">
         <div class="container-fluid mainContet">
           <div class="content">
             <div class="page-header">
               <div class="page-title">
-                <h4>Sales List</h4>
-                <h6>Manage your sales</h6>
+                <h4>Customer List</h4>
+                <h6>Manage your Customers</h6>
+              </div>
+              <div class="page-btn">
+                <a href="addcustomer.html" class="btn btn-added"
+                  ><img src="assets/img/icons/plus.svg" alt="img" />Add
+                  Customer</a
+                >
               </div>
             </div>
+  
             <div class="card">
               <div class="card-body">
                 <div class="table-top">
@@ -125,23 +130,30 @@
                     <div class="search-path">
                       <a class="btn btn-filter" id="filter_search">
                         <img src="assets/img/icons/filter.svg" alt="img" />
-                        <span><img src="assets/img/icons/closes.svg" alt="img" /></span>
+                        <span
+                          ><img src="assets/img/icons/closes.svg" alt="img"
+                        /></span>
                       </a>
                     </div>
                     <div class="search-input">
-                      <a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg" alt="img" /></a>
+                      <a class="btn btn-searchset"
+                        ><img src="assets/img/icons/search-white.svg" alt="img"
+                      /></a>
                     </div>
-                  </div>
+                  </div>        
                 </div>
+  
                 <div class="table-responsive" id="dynamic-table-container">
-                  <!-- Dynamic table will be added here -->
+                         <!-- Dynamic table will be added here -->
+
                 </div>
               </div>
             </div>
           </div>
+         
+
         </div>
       </main>
-      <!-- Footer -->
       <footer class="footer">
         <div class="container-fluid">
           <div class="row text-muted">
@@ -173,28 +185,22 @@
       </footer>
     </div>
   </div>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+  <script src="assets/js/feather.min.js"></script>
+
+  <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+  <script src="assets/js/jquery.dataTables.min.js"></script>
+  <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/plugins/select2/js/select2.min.js"></script>
+
+  <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+  <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
+ <script src="customerList.js"></script>
 </body>
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-
-<script src="assets/js/feather.min.js"></script>
-
-<script src="assets/js/jquery.slimscroll.min.js"></script>
-
-<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/dataTables.bootstrap4.min.js"></script>
-
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-
-<script src="assets/plugins/select2/js/select2.min.js"></script>
-
-<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-<script src="orderList.js"></script>
-<script>
-  const sidebarToggle = document.querySelector("#sidebar-toggle");
-  sidebarToggle.addEventListener("click", function () {
-    document.querySelector("#sidebar").classList.toggle("collapsed");
-  });
-
-</script>
 
 </html>
