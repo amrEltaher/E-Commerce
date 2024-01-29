@@ -148,7 +148,7 @@
                         localStorage.setItem("currentUser", JSON.stringify(foundUser));
                         redirectToDashboard(foundUser.userType);   
                         document.getElementById("emailError").textContent = "";
-                document.getElementById("passwordError").textContent = "";
+                        document.getElementById("passwordError").textContent = "";
                     } else {
                         // Invalid credentials
                         document.getElementById("emailError").textContent = "Invalid email or password.";
