@@ -289,10 +289,13 @@
             // Add more fields as needed
 
             // Get the existing user data from local storage
-            var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
+
+            // var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
 
             // Find the user in the array
-            var currentUser;
+
+            // var currentUser;
+            
             for (var i = 0; i < existingUserData.length; i++) {
                 if (existingUserData[i].userEmail === userEmailInput) {
                     currentUser = existingUserData[i];
