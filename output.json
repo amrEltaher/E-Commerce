@@ -1,0 +1,612 @@
+{
+    "watchs": {
+      "143": {
+        "title": "Samsung Galaxy Watch5 Pro BT Smart Watch, 45mm - Black Titanium",
+        "price": "16000",
+        "pic": "/smartwatchs/watch_img7.jpg",
+        "rating":"3.5",
+        "numberOfRatings":"700"
+        
+      },
+      "1416": {
+        "title": "Huawei Watch GT 4 , Smart Watch, Silver Case- Black Strap",
+        "price": "11,200",
+        "pic": "/smartwatchs/watch_img8.jpg",
+        "rating":"4",
+        "numberOfRatings":"100"
+  
+  
+      },
+      "4042": {
+        "title": "Oraimo Smart Watch, Black - OSW-16",
+        "price": "15000",
+        "pic": "/smartwatchs/watch_img14.jpg",
+        "rating":"3.5"
+  
+      },
+      "5423": {
+        "title": "Z91 Ultra Smart Watch, Silver Case and Grey Strap",
+        "price": "12500",
+        "pic": "/smartwatchs/watch_img1.jpg",
+        "rating":"4.5",
+        "numberOfRatings":"77"
+  
+  
+  
+      },
+      "5457": {
+        "title": "Wiwu SW02 Smart Watch- Silver",
+        "price": "1990",
+        "pic": "/smartwatchs/watch_img9.jpg",
+        "rating":"5",
+        "numberOfRatings":"550"
+  
+  
+      },
+      "5487": {
+        "title": "Wiwu SW01 Ultra Smart Watch, 1.9 Inch - Gold",
+        "price": "17000",
+        "pic": "/smartwatchs/watch_img2.jpg",
+        "rating":"3"
+  
+      },
+      "6955": {
+        "title": "Joyroom Fit Life Series Smart Watch, 1.8 Inch, Black - JR-FT5",
+        "price": "14000",
+        "pic": "/smartwatchs/watch_img5.jpg",
+        "rating":"3.5"
+  
+      },
+      "7090": {
+        "title": "Xiaomi Redmi Watch 3, 1.75 Inch, Black - BHR6851GL",
+        "price": "12000",
+        "pic": "/smartwatchs/watch_img10.jpg",
+        "rating":"1.5"
+  
+      },
+      "7363": {
+        "title": "IMILAB Smart Watch, Black - W12",
+        "price": "20000",
+        "pic": "/smartwatchs/watch_img3.jpg",
+        "rating":"1.5"
+  
+      },
+      "7761": {
+        "title": "Huawei Watch GT 3 Active Edition, 46mm, Black - B19S",
+        "price": "25000",
+        "pic": "/smartwatchs/watch_img4.jpg",
+        "rating":"3.5"
+  
+  
+      },
+      "7828": {
+        "title": "Apple Watch Series 9 Smart Watch, 45mm, Midnight Aluminum Case with Midnight Sport Band - MR9A3LL-A",
+        "price": "30000",
+        "pic": "/smartwatchs/watch_img13.jpg",
+        "rating":"4.5"
+  
+      },
+      "8236": {
+        "title": "Wiwu SW02 Smart Watch- Black",
+        "price": "1080",
+        "pic": "/smartwatchs/watch_img11.jpg",
+        "rating":"3.5"
+  
+      },
+      "8357": {
+        "title": "Oraimo Watch 2R Smart Watch , Black - OSW-30",
+        "price": "12200",
+        "pic": "/smartwatchs/watch_img12.jpg",
+        "rating":"5"
+  
+      },
+      "8880": {
+        "title": "Samsung Galaxy Watch5 Pro BT Smart Watch, 45 mm - Gray Titanium",
+        "price": "12,999",
+        "pic": "/smartwatchs/watch_img15.jpg",
+        "rating":"3.5"
+  
+      },
+      "9445": {
+        "title": "Huawei Band 8 Smart Band-Midnight Black",
+        "price": "8000",
+        "pic": "/smartwatchs/watch_img6.jpg"
+      }
+    },
+    "screens": {
+      "128": {
+        "title": "LG 50 Inch 4K UHD Smart LED TV with Built in Receiver",
+        "price": "18499",
+        "pic": "/smartscreens/screen_img11.jpg",
+        "rating":"3.5",
+        "numberOfRatings":"550",
+  
+        "specs": {
+          "screen_size": "50 inches",
+          "resolution": "4K UHD",
+          "smart_feature": true,
+          "built_in_receiver": true
+        }
+      },
+      "354": {
+        "title": "LG OLED 55 Inch Smart TV with Magic Remote",
+        "price": "53999",
+        "pic": "/smartscreens/screen_img8.jpg",
+        "rating":"5",
+        "numberOfRatings":"63",
+  
+  
+        "specs": {
+          "screen_size": "55 inches",
+          "resolution": "OLED",
+          "smart_feature": true,
+          "built_in_receiver": false
+        }
+      },
+      "1967": {
+        "title": "LG 32 Inch FHD Smart LED TV",
+        "price": "8499",
+        "pic": "/smartscreens/screen_img3.jpg",
+        "rating":"3",
+        "numberOfRatings":"32",
+  
+        "specs": {
+          "screen_size": "32 inches",
+          "resolution": "FHD",
+          "smart_feature": true,
+          "built_in_receiver": false
+        }
+      },
+      "3395": {
+        "title": "LG UQ7500 Series, 55 Inch 4K UHD Smart LED TV With Built in Receiver",
+        "price": "21499",
+        "pic": "/smartscreens/screen_img4.jpg",
+        "rating":"2",
+        "numberOfRatings":"550",
+  
+  
+        "specs": {
+          "screen_size": "55 inches",
+          "resolution": "4K UHD",
+          "smart_feature": true,
+          "built_in_receiver": true
+        }
+      },
+      "3569": {
+        "title": "LG 55 Inch 4K UHD Smart LED TV with Built",
+        "price": "21499",
+        "pic": "/smartscreens/screen_img2.jpg",
+        "specs": {
+          "screen_size": "55 inches",
+          "resolution": "4K UHD",
+          "smart_feature": true,
+          "built_in_receiver": true
+        }
+      },
+      "4177": {
+        "title": "LG 43 Inch 4K UHD Smart LED TV with Built",
+        "price": "15399",
+        "pic": "/smartscreens/screen_img5.jpg",
+        "specs": {
+          "screen_size": "43 inches",
+          "resolution": "4K UHD",
+          "smart_feature": true,
+          "built_in_receiver": true
+        }
+      },
+      "4575": {
+        "title": "LG Nanocell 50 Inch Smart TV with Magic Remote",
+        "price": "15499",
+        "pic": "/smartscreens/screen_img12.jpg",
+        "specs": {
+          "screen_size": "50 inches",
+          "resolution": "Nanocell",
+          "smart_feature": true,
+          "built_in_receiver": false
+        }
+      },
+      "4816": {
+        "title": "LG 65 Inch 4K UHD QNED Smart TV with Built",
+        "price": "39899",
+        "pic": "/smartscreens/screen_img9.jpg",
+        "specs": {
+          "screen_size": "65 inches",
+          "resolution": "4K UHD QNED",
+          "smart_feature": true,
+          "built_in_receiver": true
+        }
+      },
+      "5378": {
+        "title": "LG Nanocell 55 Inch Smart LED TV with Magic Remote",
+        "price": "24999",
+        "pic": "/smartscreens/screen_img7.jpg",
+        "specs": {
+          "screen_size": "55 inches",
+          "resolution": "Nanocell",
+          "smart_feature": true,
+          "built_in_receiver": false
+        }
+      },
+      "8920": {
+        "title": "LG 50 Inch 4K UHD Smart LED TV with Built",
+        "price": "18999",
+        "pic": "/smartscreens/screen_img6.jpg",
+        "specs": {
+          "screen_size": "50 inches",
+          "resolution": "4K UHD",
+          "smart_feature": true,
+          "built_in_receiver": true
+        }
+      },
+      "9683": {
+        "title": "LG 75 Inch 4K UHD Smart LED TV with Built",
+        "price": "22599",
+        "pic": "/smartscreens/screen_img10.jpg",
+        "specs": {
+          "screen_size": "75 inches",
+          "resolution": "4K UHD",
+          "smart_feature": true,
+          "built_in_receiver": false
+        }
+      }
+    },
+    "laptops": {
+      "30": {
+        "title": "Lenovo IdeaPad Gaming 3 15IAH7 Laptop",
+        "price": " 53100",
+        "rating":"5",
+        "numberOfRatings":"221",
+  
+        "specs": {
+          "cpu": " Intel Core i7-12650H",
+          "ssd": " 15.6 Inch",
+          "ram": " 512GB SSD",
+          "screen": " 16GB RAM",
+          "GPU": " NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics"
+        },
+        "pic": "/laptops/lap_img25.jpg"
+      },
+      "201": {
+        "title": "HP Chromebook 11A G8 Education Laptop",
+        "price": "18000",
+        "rating":"3",
+        "numberOfRatings":"50",
+  
+        "specs": {
+          "cpu": " AMD A4-9120C",
+          "ssd": " 11.6 Inch",
+          "ram": " 32GB SSD",
+          "screen": " 4GB RAM",
+          "GPU": " AMD Radeon R4 Graphics"
+        },
+        "pic": "/laptops/lap_img16.jpg"
+      },
+      "508": {
+        "title": "HP Pavilion 15s-eq1001ne Laptop",
+        "price": " 17499",
+        "rating":"4",
+        "numberOfRatings":"550",
+  
+        "specs": {
+          "cpu": " AMD Ryzen 3-3250U",
+          "ssd": " 15.6Inch FHD",
+          "ram": " 256GB SSD",
+          "screen": " 4GB RAM",
+          "GPU": " AMD Radeon Integrated Graphics"
+        },
+        "pic": "/laptops/lap_img24.jpg"
+      },
+      "536": {
+        "title": "Lenovo IdeaPad 3 Laptop",
+        "price": " 18199",
+        "specs": {
+          "cpu": " Intel Core i3-1115G4",
+          "ssd": " 15.6 Inch UHD",
+          "ram": " 256 GB SSD",
+          "screen": " 4GB RAM",
+          "GPU": " Integrated Intel UHD Graphics"
+        },
+        "pic": "/laptops/lap_img5.jpg"
+      },
+      "747": {
+        "title": "Lenovo IdeaPad 5 15ITL05 Laptop",
+        "price": " 40449",
+        "specs": {
+          "cpu": " 15.6 Inch",
+          "ssd": " Intel Core i7-1165G7",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " Nvidia GeForce MX450 2GB"
+        },
+        "pic": "/laptops/lap_img6.jpg"
+      },
+      "828": {
+        "title": "HP ProBook x360 11 G3 EE N4000 Laptop",
+        "price": " 11000",
+        "specs": {
+          "cpu": " Intel Celeron N4120",
+          "ssd": " 64GB SSD",
+          "ram": " 4GB RAM",
+          "screen": " 11.6 Inch HD Touch Display",
+          "GPU": " Intel UHD Graphics 600"
+        },
+        "pic": "/laptops/lap_img2.jpg"
+      },
+      "967": {
+        "title": "Asus E203NAH-FD084T Laptop",
+        "price": " 9999",
+        "specs": {
+          "cpu": " Intel Celeron N3350",
+          "ssd": " 11.6 Inch HD",
+          "ram": " 500GB HDD",
+          "screen": " 4GB RAM",
+          "GPU": " Intel HD 500 Graphics"
+        },
+        "pic": "/laptops/lap_img9.jpg"
+      },
+      "1406": {
+        "title": "Asus Vivobook S 14 Flip TN3402YA-LZ005W Laptop",
+        "price": "13000",
+        "specs": {
+          "cpu": " AMD Ryzen 5 7530U",
+          "ssd": " 14 Inch",
+          "ram": " WUXGA Display",
+          "screen": " 512GB SSD",
+          "GPU": " 8GB RAM"
+        },
+        "pic": "/laptops/lap_img21.jpg"
+      },
+      "3297": {
+        "title": "Dell Latitude 3390 Laptop",
+        "price": " 16000",
+        "specs": {
+          "cpu": " Intel Core i5-8350U",
+          "ssd": " 256GB SSD",
+          "ram": " 8GB RAM",
+          "screen": " 13.3 Inch FHD Touch Display",
+          "GPU": " Intel UHD Graphics 620 "
+        },
+        "pic": "/laptops/lap_img3.jpg"
+      },
+      "3356": {
+        "title": "Asus X515 Laptop",
+        "price": " 29699",
+        "specs": {
+          "cpu": " Intel Core i5-1135G7",
+          "ssd": " 15.6 Inch FHD",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " NVIDIA GeForce MX330 2GB"
+        },
+        "pic": "/laptops/lap_img30.jpg"
+      },
+      "4117": {
+        "title": "Asus Vivobook 15 X1502ZA-EJ003W Laptop",
+        "price": " 17600",
+        "specs": {
+          "cpu": " Intel Core i3-1215U",
+          "ssd": " 15.6 Inch FHD",
+          "ram": " 256GB SSD",
+          "screen": " 4GB RAM",
+          "GPU": " Intel UHD Graphics"
+        },
+        "pic": "/laptops/lap_img8.jpg"
+      },
+      "4579": {
+        "title": "Asus Zenbook 14X OLED UX3404VA-OLED005W Laptop",
+        "price": "25000",
+        "specs": {
+          "cpu": " Intel Core i5-13500H",
+          "ssd": " 14.5 Inch",
+          "ram": " 2.8K OLED Display",
+          "screen": " 512GB SSD",
+          "GPU": " 16GB RAM"
+        },
+        "pic": "/laptops/lap_img19.jpg"
+      },
+      "5649": {
+        "title": "Asus ZenBook 14 OLED UX3402ZA-OLED005W Laptop",
+        "price": "15000",
+        "specs": {
+          "cpu": " Intel Core I5-1240P",
+          "ssd": " 14 Inch",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " Intel Iris Xe Graphics"
+        },
+        "pic": "/laptops/lap_img29.jpg"
+      },
+      "5667": {
+        "title": "HP DW3377NE Laptop",
+        "price": "18788",
+        "specs": {
+          "cpu": " Intel Core i5-1135G7",
+          "ssd": " 15.6 Inch HD",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " NVIDIA GeForce MX450 2GB"
+        },
+        "pic": "/laptops/lap_img4.jpg"
+      },
+      "5842": {
+        "title": "Asus Vivobook 15 X1502ZA-EJ007W Laptop",
+        "price": " 30999",
+        "specs": {
+          "cpu": " Intel Core I7-1255U",
+          "ssd": " 15.6 Inch",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " Intel UHD Graphics"
+        },
+        "pic": "/laptops/lap_img28.jpg"
+      },
+      "6049": {
+        "title": "Lenovo V15 - 82NB001KED Laptop",
+        "price": "15800",
+        "specs": {
+          "cpu": " Intel Core i3-10110U",
+          "ssd": " 15.6 Inch",
+          "ram": " 256GB SSD",
+          "screen": " 4GB RAM",
+          "GPU": " Integrated Intel UHD Graphics"
+        },
+        "pic": "/laptops/lap_img7.jpg"
+      },
+      "6085": {
+        "title": "Lenovo Legion 5 Pro Laptop",
+        "price": " 84690",
+        "specs": {
+          "cpu": " Intel Core i7-12700H",
+          "ssd": " 16 Inch WQXGA",
+          "ram": " 1TB SSD",
+          "screen": " 32GB RAM",
+          "GPU": " 6GB NVIDIA GeForce RTX 3060 Graphics"
+        },
+        "pic": "/laptops/lap_img11.jpg"
+      },
+      "6482": {
+        "title": "HP X360 ProBook 2018 Premium Laptop",
+        "price": " 11000",
+        "specs": {
+          "cpu": " Intel Celeron N3350",
+          "ssd": " 64GB SSD",
+          "ram": " 4GB RAM",
+          "screen": " 11.6 Inch HD Touchscreen",
+          "GPU": " Intel HD Graphics 500"
+        },
+        "pic": "/laptops/lap_img1.jpg"
+      },
+      "6485": {
+        "title": "HP OMEN 16-k0033dx Gaming Laptop",
+        "price": " 76340",
+        "specs": {
+          "cpu": " Intel Core i9-12900H",
+          "ssd": " 16.1 Inch",
+          "ram": " 1TB SSD",
+          "screen": " 16GB RAM",
+          "GPU": " NVIDIA GeForce RTX 3060 6GB Graphics"
+        },
+        "pic": "/laptops/lap_img26.jpg"
+      },
+      "7218": {
+        "title": "Lenovo IdeaPad Gaming 3 15IAH7 Laptop",
+        "price": " 55990",
+        "specs": {
+          "cpu": " Intel Core i7-12650H",
+          "ssd": " 15.6 Inch",
+          "ram": " 512GB SSD",
+          "screen": " 16GB RAM",
+          "GPU": " -NVIDIA RTX3060 6GBGraphics"
+        },
+        "pic": "/laptops/lap_img22.jpg"
+      },
+      "7247": {
+        "title": "HP Pavilion 15-eg0063ne Laptop",
+        "price": " 28999",
+        "specs": {
+          "cpu": " Intel Core i5-1135G7",
+          "ssd": " 15.6 Inch",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " NVIDIA GeForce MX350 2GB"
+        },
+        "pic": "/laptops/lap_img13.jpg"
+      },
+      "7373": {
+        "title": "HP Victus 16-E1012NE Laptop",
+        "price": "25000",
+        "specs": {
+          "cpu": " AMD R7-6800H",
+          "ssd": " 16.1 Inch FHD 144Hz",
+          "ram": " 512GB SSD",
+          "screen": " 16GB RAM",
+          "GPU": " Nvidia RTX 3050 4GB"
+        },
+        "pic": "/laptops/lap_img10.jpg"
+      },
+      "7458": {
+        "title": "Lenovo Legion 7 16ACHG6 Laptop",
+        "price": " 79990",
+        "specs": {
+          "cpu": " AMD Ryzen 7 5800H",
+          "ssd": " 16 Inch",
+          "ram": " 1TB SSD",
+          "screen": " 16GB RAM",
+          "GPU": " NVIDIA GeForce RTX 3070 8GB"
+        },
+        "pic": "/laptops/lap_img14.jpg"
+      },
+      "8127": {
+        "title": "Asus ROG Strix SCAR 15 (2022) G533ZW-LN086W Laptop",
+        "price": " 98500",
+        "specs": {
+          "cpu": " 14 inch",
+          "ssd": " AMD Ryzen 9 5900HS",
+          "ram": " 1TB SSD",
+          "screen": " 32GB RAM",
+          "GPU": " Intel Iris Xe Graphics 8GB GDDR6"
+        },
+        "pic": "/laptops/lap_img23.jpg"
+      },
+      "8311": {
+        "title": "Asus ZenBook 14 OLED UX3402ZA-OLED007W Laptop",
+        "price": "16000",
+        "specs": {
+          "cpu": " Intel Core I7-1260P",
+          "ssd": " 14 Inch",
+          "ram": " 1TB SSD",
+          "screen": " 16GB RAM",
+          "GPU": " Intel Iris Xe Graphics"
+        },
+        "pic": "/laptops/lap_img27.jpg"
+      },
+      "8413": {
+        "title": "Lenovo LOQ Gaming Laptop",
+        "price": "25000",
+        "specs": {
+          "cpu": " Intel Core i7-13620H",
+          "ssd": " 512GB",
+          "ram": " 16GB RAM",
+          "screen": " 15.6 Inch FHD",
+          "GPU": " Display"
+        },
+        "pic": "/laptops/lap_img15.jpg"
+      },
+      "8417": {
+        "title": "HP Pavilion 15-eg0062ne Laptop",
+        "price": " 28999",
+        "specs": {
+          "cpu": " Intel Core i5-1135G7",
+          "ssd": " 15.6 Inch",
+          "ram": " 512GB SSD",
+          "screen": " 8GB RAM",
+          "GPU": " NVIDIA GeForce MX350 2GB"
+        },
+        "pic": "/laptops/lap_img12.jpg"
+      },
+      "9077": {
+        "title": "HP 15-fc0036ne 7Y7P7EA Laptop",
+        "price": "13000",
+        "specs": {
+          "cpu": " AMD Ryzen 7-7730U",
+          "ssd": " 512GB SSD",
+          "ram": " 16GB RAM",
+          "screen": " 15.6 Inch HD Display",
+          "GPU": " AMD Radeon Graphics"
+        },
+        "pic": "/laptops/lap_img17.jpg"
+      },
+      "9522": {
+        "title": "HP 250 G8 Laptop",
+        "price": " 15866",
+        "specs": {
+          "cpu": " Intel Core i3-1115G4",
+          "ssd": " 15.6 Inch",
+          "ram": " FHD IPS 60Hz Display",
+          "screen": " 256GB SSD",
+          "GPU": " 8GB RAM"
+        },
+        "pic": "/laptops/lap_img18.jpg"
+      }
+    }
+  }
