@@ -111,52 +111,75 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <script>
-            document.getElementById("login_btn").addEventListener("click", function (event) {
-                // Prevent the default form submission
-                event.preventDefault();
+document.getElementById("login_btn").addEventListener("click", function (event) {
+    // Prevent the default form submission
+    event.preventDefault();
 
-                // Fetch input values
-                var userEmailInput = document.getElementById("typeEmailX");
-                var userPasswordInput = document.getElementById("typePasswordX");
+    // Fetch input values
+    var userEmailInput = document.getElementById("typeEmailX");
+    var userPasswordInput = document.getElementById("typePasswordX");
 
-                // Reset previous error messages
-                document.getElementById("emailError").textContent = "";
-                document.getElementById("passwordError").textContent = "";
+    // Reset previous error messages
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
 
-                // Validate inputs
-                var isValid = true;
+    // Validate inputs
+    var isValid = true;
 
-                if (!validateEmail(userEmailInput.value)) {
-                    document.getElementById("emailError").textContent = "Invalid email address.";
-                    isValid = false;
-                }
+    if (!validateEmail(userEmailInput.value)) {
+        document.getElementById("emailError").textContent = "Invalid email address.";
+        isValid = false;
+    }
 
-                if (!validatePassword(userPasswordInput.value)) {
-                    document.getElementById("passwordError").textContent = "Password is required.";
-                    isValid = false;
-                }
+    if (!validatePassword(userPasswordInput.value)) {
+        document.getElementById("passwordError").textContent = "Password is required.";
+        isValid = false;
+    }
 
-                // If all validations pass, check against stored data in local storage
-                if (isValid) {
-                    var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
-                    var foundUser = existingUserData.find(function (user) {
-                        return user.userEmail === userEmailInput.value && user.userPassword === userPasswordInput.value;
-                    });
-                   // var userRole = foundUser.userType;
-                    if (foundUser) {
-                        // Successful login, so redirect bbased on user type 
-                        alert("Login successful");
-                        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+    // If all validations pass, check against stored data in local storage
+    if (isValid) {
+        var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
+        var foundUser = existingUserData.find(function (user) {
+            return user.userEmail === userEmailInput.value && user.userPassword === userPasswordInput.value;
+        });
 
-                        // Store the current user in local storage
-                        redirectToDashboard(foundUser.userType);                  
-                    } else {
-                        // Invalid credentials
-                        document.getElementById("emailError").textContent = "Invalid email or password.";
-                    }
+        if (foundUser) {
+            // Successful login
+            alert("Login successful");
 
-                }
-            });
+            // Store the current user in local storage
+            localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+            // Redirect based on user type
+            redirectToDashboard(foundUser.userType, foundUser.userFirstName);
+        } else {
+            // Invalid credentials
+            document.getElementById("emailError").textContent = "Invalid email or password.";
+        }
+    }
+});
+
+function redirectToDashboard(userType, userFirstName) {
+    switch (userType) {
+        case "customer":
+            // Redirect to the home page with the user's name as a parameter
+            window.location.href = "MyAccount.html?userFirstName=" + encodeURIComponent(userFirstName);
+            break;
+        case "seller":
+            // Redirect to the seller page
+            window.location.href = "seller_dashboard.html";
+            break;
+        case "admin":
+            window.location.href = "admin_dashboard.html";
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+
 
             // Validation functions (same as before)
             function validateEmail(email) {
@@ -170,7 +193,7 @@
             function redirectToDashboard(userType) {
                 switch (userType) {
                     case "customer":
-                        window.location.href = "products.html";
+                        window.location.href = "Homepage.html";
                         break;
                     case "seller":
                         window.location.href = "Seller.html";
