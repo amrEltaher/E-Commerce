@@ -24,6 +24,10 @@
     for(let i in data.specs){
         $('.specs').append(`<li class="list-group-item">${i} : ${data.specs[i]}</li>`)
     }
+    if(cart[userId] == undefined){
+        cart[userId] = {}
+    }
+   
     cart[userId][cat + "-" + id] ? $('.toggle-item').text('Remove From Cart') : $('.toggle-item').text('Add To Cart')
     $('.toggle-item').on('click', function () {
      

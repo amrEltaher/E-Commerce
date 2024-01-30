@@ -13,6 +13,8 @@ let RangeObj = {
   let pramas = new URLSearchParams(window.location.search);
   let sellers = pramas.getAll("Seller");
   let category = pramas.getAll("category");
+  let search = pramas.get("search");
+  console.log(search);
   let range =  pramas.get("Range") == null ? 4 : pramas.get("Range");
   sellers.forEach((item) => {
     document.getElementById(item).checked = true;
@@ -68,8 +70,8 @@ let RangeObj = {
         ArrayOfProducts[i].title =
           ArrayOfProducts[i].title.slice(0, 15) + "...";
       }
-    if(ArrayOfProducts[i].ishidden || ArrayOfProducts[i].isdeleted) continue;
-      debugger
+    if(ArrayOfProducts[i].hidden || ArrayOfProducts[i].deleted) continue;
+      
     $("#data-container").append(
         `<div
     
@@ -104,13 +106,24 @@ let RangeObj = {
   };
   let filteredProducts = filter(data, sellers, category, range);
   $("#count").text(filteredProducts.length);
-  RenderProducts(filteredProducts);
+  // in case we have search Query 
+  if(search != null){
+    f = filteredProducts.filter(
+      (item) =>
+        item.title.toLowerCase().includes(search)
+    );
+    $("#count").text(f.length);
+    RenderProducts(f);
+  }else{
+    RenderProducts(filteredProducts);
+
+  }
+//////////////////////////////////////////////////////////////////////////////////
   $(".search").on("click", function () {
     let val = $("#search").val();
     f = filteredProducts.filter(
       (item) =>
-        item.title.toLowerCase().includes(val.toLowerCase()) ||
-        item.sellerId.toLowerCase().includes(val.toLowerCase())
+        item.title.toLowerCase().includes(val.toLowerCase())
     );
     $("#count").text(f.length);
     RenderProducts(f);

@@ -166,6 +166,25 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+                  fetch('/outputV2.json').then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                localStorage.setItem("products", JSON.stringify(data));
+            })
+            fetch('/sellers.json').then(
+                function (response) {
+                    return response.json();
+                }
+            ).then(
+                function (data) {
+                    localStorage.setItem("sellers", JSON.stringify(data));
+                }
+            )
+            fetch('/users.json').then(
+                function (data) {
+                    localStorage.setItem("sellers", JSON.stringify(data));
+                }
+            )
         console.log(JSON.parse(localStorage.getItem("userArray"))||[]);
         document.getElementById("reg_btn").addEventListener('click', function () {
             // Validation functions

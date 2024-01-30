@@ -7,12 +7,12 @@ let sellers = JSON.parse(localStorage.getItem('sellers'))
 let products = JSON.parse(localStorage.getItem('products'))
 let orders = JSON.parse(localStorage.getItem('orders'))
 let sellerorders = JSON.parse(localStorage.getItem('sellerOrders')) || {'1000':{orders: []}} 
-let SelectedSeller = sellers["1000"] 
-let SellerOrders = sellerorders["1000"].orders.map(item => orders[item])
-let pendingOrders = sellerorders["1000"].orders.filter(item=> orders[item].status === 'pending')
-let canceledOrders = sellerorders["1000"].orders.filter(item=> orders[item].status === 'canceled')
-let delivered =sellerorders["1000"].orders.filter(item=> orders[item].status === 'delivered')
-let Revenue = sellerorders["1000"].orders
+let SelectedSeller = sellers[user.id] 
+let SellerOrders = sellerorders[user.id].orders.map(item => orders[item])
+let pendingOrders = sellerorders[user.id].orders.filter(item=> orders[item].status === 'pending')
+let canceledOrders = sellerorders[user.id].orders.filter(item=> orders[item].status === 'canceled')
+let delivered =sellerorders[user.id].orders.filter(item=> orders[item].status === 'delivered')
+let Revenue = sellerorders[user.id].orders
     .filter(item => orders[item].status === 'delivered')
     .map(item => orders[item].total);
 
@@ -104,19 +104,19 @@ $('.revenue').text(Revenue)
     if(itemClicked.is('.Products')){
         $('.content').empty()
         $('.content').append(
-            `<table class="table  shadow">
+            `<table class="table  shadow" style = "overflowy:scroll">
             <thead>
               <tr>
-                <th scope="col"><input type="checkbox"></th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Edit</th>
+                <th scope="col">Hide / Show from search</th>
               </tr>
             </thead>
             <tbody>
               ${SellerProducts.filter(item => item !== undefined && !item.deleted)
-                .map (item =>`<tr><td><input type="checkbox"></td> <td>${item.title}</td><td>${item.price}</td>
+                .map (item =>`<tr> <td><a href="product.html?id=${item.id}&category=${item.category}">${item.title}</a"></a></td><td>${item.price}</td>
                 <td><input type="button" class="btn btn-danger delete" data-category="${item.category}" id=${item.id} value="Delete" onclick="Delete(this)"></td>
                  <td><input type="button" class="btn btn-danger edit" data-category="${item.category}" id=${item.id} value="Edit" onclick = "Edit(this)"></td> 
                  ${item.hidden ? `<td> <button onclick="ToggleVisibility(this)" data-category="${item.category}" id=${item.id} class="btn "><i class="fa-solid fa-eye-slash"></i></button> </td>` :
@@ -131,10 +131,12 @@ $('.revenue').text(Revenue)
         )
         
     }
+    
     if(itemClicked.is('.Orders')){
+      
         let statusRender = {
             pending : `<span class="badge badge-warning">Pending</span>`,
-            success : `<span class="badge badge-success">Success</span>`,
+            delivered : `<span class="badge badge-success">Success</span>`,
             canceled : `<span class="badge badge-danger">Canceled</span>`
         }
         $('.content').empty()
@@ -146,11 +148,13 @@ $('.revenue').text(Revenue)
                 <td>Order Date</td>
                 <td>Status</td>
                 <td>Total</td>
+                <td>Phone</td>
+                <td>Governorate</td>
                 <td>Details<td>
             </tr>
             </thead>
             <tbody>
-            ${sellerorders["1000"].orders.map(item => `
+            ${sellerorders[user.id].orders.map(item => `
                 <tr>
                     <td>${item}</td>
                     <td>${orders[item].date}</td>
@@ -159,6 +163,8 @@ $('.revenue').text(Revenue)
                 }
                     </td>
                     <td>${orders[item].total}</td>
+                    <td>${orders[item].phone}</td>
+                    <td>${orders[item].governorate}</td>
                     <td>
                     <a class="btn btn-primary"  data-toggle="modal" href="#exampleModal" onclick= "OrderDetails(this)" id="${item}">
                     Details
@@ -253,7 +259,7 @@ $('.revenue').text(Revenue)
                      
                      </div>
                      <div class="mt-3 d-flex flex-row justify-content-start align-items-center">
-                        <input type="file" id="file">
+                        <input type="file" id="file" onclick="getfilelocation(this)">
                         <span id="filename"></span>
                      </div>
                      <div class="mt-3">
@@ -269,47 +275,23 @@ $('.revenue').text(Revenue)
     }
 })
 
-function UploadImg(){
-
- 
-
+function getfilelocation(tar){
+  var input = tar;
+          
+  if (input.files && input.files[0]) {
+      var selectedFile = input.files[0];
+      var fileLocation = URL.createObjectURL(selectedFile);
+      return fileLocation;
+  }
 }
 const submitnewProduct = function(form) {
     event.preventDefault();
+    var fileInput = document.getElementById('file');
+    var fileLocation = getfilelocation(fileInput);
+    console.log(fileLocation);
     let name = $('#product-name').val();
     let category = $('#categories').val();
     let price = $('#product-price').val();
-    let path = {
-      "watchs": "../smartscreens/",
-      "screens": "../smartwatchs/",
-      "laptops": "../laptops/"
-    };
-  
-    // const file = document.querySelector('#file').files[0];
-    // const reader = new FileReader();
-  
-    // // Read the file and construct the image name based on timestamp
-    // reader.onloadend = function (e) {
-    //   const timestamp = new Date().getTime();
-    //   const imageName = `img_${timestamp}.jpg`;
-    //     console.log(e.target.result);
-    //   // Construct the object with the desired properties
-    //   const productObject = {
-    //     title: name,
-    //     pic: path[category] + imageName
-    //   };
-    // fetch(`/${path[category]}`, {
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(productObject)
-    //  })      
-    // };
-  
-    // if (file) {
-    //   reader.readAsDataURL(file);
-    // }
-  
     let specs = {};
     let properties = $('#propertiesList').find('.properties');
     $.each(properties, function(index, item) {
@@ -324,16 +306,18 @@ const submitnewProduct = function(form) {
       title: name,
       price: price,
       specs: specs,
-      pic:path[category],
-      sellerId:"2000"
+      pic:fileLocation,
+      sellerId:user.id
     };
-    sellers["2000"].Products.push({
+    sellers[user.id].Products.push({
         category:category,
-      product_id: toString(UniqueId)
+      product_id: UniqueId
     })
+    
     products[category][UniqueId] = product;
-    console.log(products);
-    console.log(sellers);
+    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('sellers', JSON.stringify(sellers));
+    alert('Product Added Successfully ')
   };
   function GenerateUniqeId(category){
     let id = 0;
@@ -341,7 +325,6 @@ const submitnewProduct = function(form) {
 
         id = Math.floor(Math.random() * 100000)
     }while(products[category][id])
-    console.log(id);
     return id
 }
 function appendListItem() {
@@ -375,7 +358,7 @@ const getDateForLastNDays = (n) => {
     arr.forEach(element => {
         p1++;
         p2 = 0;
-        sellerorders["1000"].orders.forEach(item => {
+        sellerorders[user.id].orders.forEach(item => {
             if(orders[item].date === element){
                 p2+= orders[item].total;
             }
@@ -387,7 +370,7 @@ const getDateForLastNDays = (n) => {
 function Delete(button) {
     let id = button.id;
     let category = button.getAttribute('data-category');
-
+    alert('Are you sure you want to delete this product ?')
     if (ExistInthePendingOrders(id,category)){
         $('.content').append($(`<div class="alert alert-warning alert-dismissible fade show" role="alert" style="position:fixed; top:0; left:50% ;transform: translate(-50%, 0);">
        this product is in the pending orders  please set to hidden and try again !
@@ -429,6 +412,10 @@ function Edit(btn){
 function SaveProduct(form){
     event.preventDefault();
     let itemToEdit = JSON.parse(localStorage.getItem('itemToEdit'));
+    if(itemToEdit === null){
+        alert('There is no Selected product');
+        return;
+    }
     let name = $('#product-name').val();
     let price = $('#product-price').val();
     let specs = {};
@@ -442,10 +429,13 @@ function SaveProduct(form){
     });
     products[itemToEdit.category][itemToEdit.id].title = name;
     products[itemToEdit.category][itemToEdit.id].specs = specs;
-   console.log(products);
+    products[itemToEdit.category][itemToEdit.id].price = price;
+    console.log(products);
    console.log(itemToEdit.id);
+   localStorage.setItem('products', JSON.stringify(products));
    localStorage.setItem('itemToEdit',null);
-
+    alert('Product Updated Successfully')
+    location.reload();
 }
 function ToggleVisibility(btn){
     let id = btn.id;

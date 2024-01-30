@@ -121,16 +121,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <script>
-            fetch('/outputV2.json').then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                localStorage.setItem("products", JSON.stringify(data));
-            })
-            fetch('/users.json').then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                localStorage.setItem("userArray", JSON.stringify(data));
-            })
+  
 
 document.getElementById("login_btn").addEventListener("click", function (event) {
     // Prevent the default form submission
@@ -184,11 +175,11 @@ function redirectToDashboard(userType, userFirstName) {
     switch (userType) {
         case "customer":
             // Redirect to the home page with the user's name as a parameter
-            window.location.href = "MyAccount.html?userFirstName=" + encodeURIComponent(userFirstName);
+            window.location.href = "/products.html" + encodeURIComponent(userFirstName);
             break;
         case "seller":
             // Redirect to the seller page
-            window.location.href = "seller_dashboard.html";
+            window.location.href = "/Seller.html.html";
             break;
         case "admin":
             window.location.href = "admin_dashboard.html";

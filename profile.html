@@ -40,198 +40,33 @@
 
     <div class="container light-style flex-grow-1 container-p-y">
         <h4 class="font-weight-bold py-3 mb-2 text-center">
-            Account settings
+           Orders History
         </h4>
-        <div class="card overflow-hidden">
-            <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
-                    <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list"
-                            href="#account-general">General</a>
-                            <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Change password</a>
-                            <a class="list-group-item list-group-item-action" data-toggle="list"
-                                href="#account-order-history">Order History</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-info">Info</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-social-links">Social links</a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-general">
-                            <div class="card-body media align-items-center pb-0">
-                                <img src="images/user_image-removebg-preview.png" alt
-                                    class="d-block ui-w-80" style="border-radius: 10px;" id="userImg">
-                                    <label class="text-light small mt-1" for="userImg">Allowed JPG, GIF or PNG. Max size of 800K</label>
-                                <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary mb-1 mt-2 mr-2">
-                                        Upload new photo
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
-                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control mb-1" id="userNameId" >
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" value="Amr eltaher">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" id="userEmailId" >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-change-password">
-                            <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Current password</label>
-                                    <input type="password" class="form-control" id="inputCurrentPassword">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">New password</label>
-                                    <input type="password" class="form-control" id="inputNewPassword">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Repeat new password</label>
-                                    <input type="password" class="form-control" id="inputNewPasswordConfirm">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-info">
-                            <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Bio</label>
-                                    <textarea class="form-control"
-                                        rows="3">👋 Hi there! I'm Amr, your friendly e-commerce enthusiast. 🛒✨
-                                       </textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Birthday</label>
-                                    <input type="text" class="form-control" value="May 10, 1999">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="custom-select">
-                                        <option>Suaidi Arabia</option>
-                                        <option selected>Egypt</option>
-                                        <option>Qatar</option>
-                                        <option>Palastine</option>
-                                        <option>Algeria</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Contacts</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" value="+22-01001122334">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-order-history">
-                            <!-- <div class="card-deck" style="height:400px; overflow-y: auto;">
-                                <div class="card">
-                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                  <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                  </div>
-                                  <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                  </div>
-                                </div>
-                                <div class="card">
-                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                  <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                  </div>
-                                  <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                  </div>
-                                </div>
-                                <div class="card">
-                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                  <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                  </div>
-                                  <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                  </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                      <small class="text-muted">Last updated 3 mins ago</small>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                      <small class="text-muted">Last updated 3 mins ago</small>
-                                    </div>
-                                  </div> -->
-                              </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-social-links">
-                            <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Twitter</label>
-                                    <input type="text" class="form-control" value="https://twitter.com/user">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Facebook</label>
-                                    <input type="text" class="form-control" value="https://www.facebook.com/user">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Google+</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">LinkedIn</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Instagram</label>
-                                    <input type="text" class="form-control" value="https://www.instagram.com/user">
-                                </div>
-                            </div>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container light-style flex-grow-1 container-p-y">
+            <h4 class="font-weight-bold py-3 mb-2 text-center">
+                Account settings
+            </h4>
+            <div class="card overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="Orders">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="text-center m-2">
-            <button type="button" class="btn btn-primary" id="saveChangesbutton">Save changes</button>&nbsp;
-            <button type="button" class="btn btn-default">Cancel</button>
-        </div>
+ 
     </div>
     <!--footer-->
-  <footer class="footer p-4 ">
+  <footer class="footer p-4 " >
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -308,10 +143,9 @@
         }
 
     </script>
+    <script src="js/userProfile.js"></script>
 </body>
 
-</html>
-    </script>
-</body>
+
 
 </html>
