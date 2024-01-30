@@ -5,6 +5,9 @@
     let id = params.get("id");
     let data = JSON.parse(localStorage.getItem("products"))[cat][id];
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (!currentUser) {
+        window.location.href = "./login.html"
+    }
     let Sellers = JSON.parse(localStorage.getItem("sellers"));
     let userId = currentUser.id;
     let cart = JSON.parse(localStorage.getItem('cart')) ;
@@ -23,6 +26,7 @@
     }
     cart[userId][cat + "-" + id] ? $('.toggle-item').text('Remove From Cart') : $('.toggle-item').text('Add To Cart')
     $('.toggle-item').on('click', function () {
+     
         if (!cart[userId][cat + "-" + id]) {
             cart[userId][cat + "-" + id] = {
                Quantity:1

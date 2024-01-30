@@ -1,19 +1,27 @@
-user = JSON.parse(localStorage.getItem('currentUser'))|{};
-  if(user.userType  == undefined){
-
+user = JSON.parse(localStorage.getItem('currentUser'))||{};
+  if( user == null || user.userType !== 'seller'){
+    location.href = '/products.html'
   }
 
 let sellers = JSON.parse(localStorage.getItem('sellers'))
 let products = JSON.parse(localStorage.getItem('products'))
 let orders = JSON.parse(localStorage.getItem('orders'))
-let sellerorders = JSON.parse(localStorage.getItem('sellerOrders'))
-let SelectedSeller = sellers["1000"]
+let sellerorders = JSON.parse(localStorage.getItem('sellerOrders')) || {'1000':{orders: []}} 
+let SelectedSeller = sellers["1000"] 
 let SellerOrders = sellerorders["1000"].orders.map(item => orders[item])
 let pendingOrders = sellerorders["1000"].orders.filter(item=> orders[item].status === 'pending')
 let canceledOrders = sellerorders["1000"].orders.filter(item=> orders[item].status === 'canceled')
 let delivered =sellerorders["1000"].orders.filter(item=> orders[item].status === 'delivered')
-let Revenue = sellerorders["1000"].orders.filter(item=> orders[item].status === 'pending').map(item => orders[item].total).reduce((a,b)=> a+b)
+let Revenue = sellerorders["1000"].orders
+    .filter(item => orders[item].status === 'delivered')
+    .map(item => orders[item].total);
+
+if (Revenue.length > 0) {
+     Revenue = Revenue.reduce((acc, current) => acc + current, 0);
+}
 let filterRole = ""
+$('#SellerName').text(user.userName)
+console.log(user.userName);
 $('.side-item').on( 'click', function(e){
     
    let item =  $(e.target).closest('.side-item')

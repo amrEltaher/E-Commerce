@@ -121,6 +121,17 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <script>
+            fetch('/outputV2.json').then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                localStorage.setItem("products", JSON.stringify(data));
+            })
+            fetch('/users.json').then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                localStorage.setItem("userArray", JSON.stringify(data));
+            })
+
 document.getElementById("login_btn").addEventListener("click", function (event) {
     // Prevent the default form submission
     event.preventDefault();
@@ -188,26 +199,6 @@ function redirectToDashboard(userType, userFirstName) {
 }
 
 
-<<<<<<< HEAD
-                // If all validations pass, check against stored data in local storage
-                if (isValid) {
-                    var existingUserData = JSON.parse(localStorage.getItem("userArray")) || [];
-                    var foundUser = existingUserData.find(function (user) {
-                        return user.userEmail === userEmailInput.value && user.userPassword === userPasswordInput.value;
-                    });
-                    var userRole = foundUser.userType;
-                    if (foundUser) {
-                        // Successful login, so redirect bbased on user type 
-                        alert("Login successful");
-                        localStorage.setItem("currentUser", JSON.stringify(foundUser));
-                        redirectToDashboard(foundUser.userType);                  
-                    } else {
-                        // Invalid credentials
-                        document.getElementById("emailError").textContent = "Invalid email or password.";
-                    }
-=======
-
->>>>>>> 7c55b404629f98bdaf7df19af992328f9d40b252
 
 
             // Validation functions (same as before)
@@ -218,25 +209,6 @@ function redirectToDashboard(userType, userFirstName) {
 
             function validatePassword(password) {
                 return password.trim() !== "";
-            }
-            function redirectToDashboard(userType) {
-                switch (userType) {
-                    case "customer":
-<<<<<<< HEAD
-                        window.location.href = "Homepage.html";
-=======
-                        window.location.href = "MyAccount.html";
->>>>>>> 7c55b404629f98bdaf7df19af992328f9d40b252
-                        break;
-                    case "seller":
-                        window.location.href = "Seller.html";
-                        break;
-                    case "admin":
-                        window.location.href = "admin_dashboard.html";
-                        break;
-                    default:
-                        break;
-                }
             }
             // Function to retrieve the current user from local storage
             function getCurrentUser() {

@@ -1,8 +1,8 @@
 user = JSON.parse(localStorage.getItem('currentUser'));
-  if(!user){
-    location.href = '/login.html'
-  }
-  userId = user.id;
+ if(!user){
+location.href = '/login.html'
+ }
+ userId = user.id;
 let RangeObj = {
     1: [5000, 10000],
     2: [10000, 20000],
@@ -55,16 +55,22 @@ let RangeObj = {
     return filteredProducts;
   }
   const RenderProducts = function (ArrayOfProducts) {
-     cart = JSON.parse (localStorage.getItem("cart")) || {[userId]:{}};
-    console.log(cart);
+     cart = JSON.parse (localStorage.getItem("cart"))
+     if(cart == null){
+      cart = {}
+     }
+     if(cart[userId] == undefined){
+      cart[userId] = {}
+     }
     $("#data-container").get(0).innerHTML = "";
     for (let i = 0; i < ArrayOfProducts.length; i++) {
       if (ArrayOfProducts[i].title.length > 20) {
         ArrayOfProducts[i].title =
           ArrayOfProducts[i].title.slice(0, 15) + "...";
       }
-      
-      $("#data-container").append(
+    if(ArrayOfProducts[i].ishidden || ArrayOfProducts[i].isdeleted) continue;
+      debugger
+    $("#data-container").append(
         `<div
     
     class="text-decoration-none col-lg-3 col-md-4 col-sm-6 col-12"
@@ -113,6 +119,9 @@ let RangeObj = {
   ()=>window.location.replace('products.html')
   )
   $('.Remove,.Add').on('click',function(e){
+    if(!user){
+      location.href = '/login.css'
+    }
     let id = $(this).data('id');
     let cat = $(this).data('cat');
     console.log(id , cat);
