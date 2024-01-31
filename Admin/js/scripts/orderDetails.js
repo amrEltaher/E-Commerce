@@ -76,7 +76,7 @@ $(document).ready(function () {
 function showCustomerInfo() {
     let object = orders[orderId];
     console.log(object);
-    $(".customerInfo").append(  `<p>Customer Name:Ebrahim<br /><a href="javascript:void(0)">email@example.com</a> <br />01140401837<br />Mansoura, ka7la cafe</p>`);
+    $(".customerInfo").append(  `<p>Customer Name:Ebrahim<br /> <br />01140401837<br />Mansoura, ka7la cafe</p>`);
     $(".sellerInfo").append(  `<span class="badge bg-success">Seller Id:${object.sellerId}</span> `);
     $(".billStatus").html( `<span class="badge bg-success">${orders[orderId]["status"]}</span>`);
 }

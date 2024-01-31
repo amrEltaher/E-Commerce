@@ -144,14 +144,14 @@ $(document).ready(function () {
               deleteAction(productId, row);
             });
             break;
-          case 'edit':
-            button.append(
-              $("<img>").attr("src", "assets/img/icons/edit.svg").addClass("me-2").attr("alt", "img"),
-              "edit Order"
-            ).on("click", () => {
-              window.location.href = `editOrders.html?id=${productId}`;
-            });
-            break;
+          // case 'edit':
+          //   button.append(
+          //     $("<img>").attr("src", "assets/img/icons/edit.svg").addClass("me-2").attr("alt", "img"),
+          //     "edit Order"
+          //   ).on("click", () => {
+          //     window.location.href = `editOrders.html?id=${productId}`;
+          //   });
+          //   break;
           case 'eye':
             button.append(
               $("<img>").attr("src", "assets/img/icons/eye1.svg").addClass("me-2").attr("alt", "img"),
