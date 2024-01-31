@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5;url=sign-in.html" />
+  <title>No Access</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .error-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  h1 {
+    color: red;
+    margin-bottom: 20px;
+  }
+</style>
+
+<body>
+  <div class="error-container">
+    <h1>Access Denied</h1>
+    <p>You do not have access to this page.</p>
+    <p>Redirecting to sign-in page...</p>
+  </div>
+  <script>
+    setTimeout(function () {
+      window.location.href = "../login.html";
+    }, 5000);
+
+  </script>
+</body>
+
+</html>
