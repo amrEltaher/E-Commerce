@@ -121,11 +121,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <script>
-            fetch('/outputV2.json').then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                localStorage.setItem("products", JSON.stringify(data));
-            })
+           
            
 
 document.getElementById("login_btn").addEventListener("click", function (event) {
