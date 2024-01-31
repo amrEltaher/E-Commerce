@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name"  />
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" />
+      <input type="submit" value="Submit"> 
+      <input type="reset" value="Reset">
+       </form>
+    <input type="button" value="Order" id="order" />
+
+  </body>
+  <script>
+    document.forms[0].addEventListener("submit", function (e) {
+     
+    })
+    let user = JSON.parse(localStorage.getItem("currentUser")).id;
+    let orders = JSON.parse(localStorage.getItem("orders")) || {};
+    let userOrders = JSON.parse(localStorage.getItem("userOrders")) 
+    if(userOrders == null){
+      userOrders = {}
+    }
+    if(userOrders[user] == undefined){
+      userOrders[user] == {orders:[]}
+    }
+    let sellerOrders = JSON.parse(localStorage.getItem("sellerOrders")) || {};
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    let products = JSON.parse(localStorage.getItem("data"));
+    document.getElementById("order").addEventListener("click", function () {
+      let temp = {};
+      let cat = "";
+      let id = "";
+      let orderID = 0;
+      for (const key in cart[user]) {
+        cat = key.split("-")[0];
+        id = key.split("-")[1];
+        
+        if (temp[products[cat][id].sellerId] == undefined) {
+          orderID = genOrderID();
+          temp[products[cat][id].sellerId] = orderID;
+          if (sellerOrders[products[cat][id].sellerId] == undefined) {
+            sellerOrders[products[cat][id].sellerId] = {
+              orders: [],
+            };
+          }
+          sellerOrders[products[cat][id].sellerId] = {
+          orders: [...sellerOrders[products[cat][id].sellerId].orders,temp[products[cat][id].sellerId]]
+        };
+        }
+        if (orders[temp[products[cat][id].sellerId]] == undefined) {
+          orders[temp[products[cat][id].sellerId]] = {};
+          orders[temp[products[cat][id].sellerId]].sellerId =
+            products[cat][id].sellerId;
+            orders[temp[products[cat][id].sellerId]].status = "pending";
+            orders[temp[products[cat][id].sellerId]].date = new Date().toLocaleDateString().split(',')[0]
+          orders[temp[products[cat][id].sellerId]].products = [];
+          orders[temp[products[cat][id].sellerId]].products.push({
+            id: id,
+            cat: cat,
+            quantity: 1,
+          });
+          orders[temp[products[cat][id].sellerId]].total =
+            parseInt( products[cat][id].price * 1);
+ 
+        } else {
+          orders[temp[products[cat][id].sellerId]] = {
+            ...orders[temp[products[cat][id].sellerId]],
+            products: [
+              ...orders[temp[products[cat][id].sellerId]].products,
+              {
+                id: id,
+                cat: cat,
+                quantity: 1,
+                
+              },
+            ],
+              total:
+              orders[temp[products[cat][id].sellerId]].total +
+              parseInt(products[cat][id].price) * 1,
+          };
+        }
+        
+
+
+      }
+      debugger
+      userOrders[user] = {
+        orders: [...userOrders[user].orders, temp[products[cat][id].sellerId]],
+      };
+      localStorage.setItem("orders", JSON.stringify(orders));
+      localStorage.setItem("sellerOrders", JSON.stringify(sellerOrders));
+      localStorage.setItem("userOrders", JSON.stringify(userOrders));
+    
+    });
+    function genOrderID() {
+      let orderID;
+      do {
+        orderID = Math.floor(Math.random() * 10000000);
+      } while (orders[orderID]);
+      return orderID;
+    }
+  </script>
+</html>
