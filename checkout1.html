@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/cart.css">
+</head>
+<body>
+    <!--Header-->
+   <div class="header  sticky-top">
+    <div class="Search-box d-inline-flex ">
+       
+      <div class="logo ">
+        <a href="Homepage.html" style=" text-decoration: none;">
+            <h4 style="font-family: cinzel;"><p>Quantum Tech <i class="fas fa-laptop" ></i></p></h4>
+        </a>
+    </div> 
+
+    <input type="text" class="form-control Search ml-3" id="searchInput" style="
+    margin-left:50PX;
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;" placeholder="Search" onkeydown="handleKeyPress(event)">
+  
+  <span class="input-group-text" onclick="searchProducts()">
+    <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
+  </span>
+
+     
+    </div>
+    <div class="menu-bar ">
+      <ul class="list-unstyled d-inline-flex" >
+        <li><a href="HomePage.html"><i class="fa-solid fa-house" ></i> Home
+        </a></li>
+        <li id="account-link"><a href="SignIn.html"><i class="fa-solid fa-user" ></i>  Hello, Sign In</a></li>
+
+      </li>
+      <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>  My cart</a></li>
+      <li><a href="ContactUs.html"><i class="fa-solid  fa-pen-to-square" ></i>  Contact Us</a>
+      </li>
+      </ul>
+    </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Checkout</h1>
+
+        <!-- Order Summary -->
+        <div class="mb-4">
+            <h2>Order Summary</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="checkoutCart"></tbody>
+            </table>
+        </div>
+
+        <!-- Additional Information Form -->
+        <div>
+            <h2>Additional Information</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" pattern="(010|011|012)[0-9]{8}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="governorate">Governorate:</label>
+                    <select class="form-control" id="governorate" name="governorate" required>
+                        <option value="cairo">Cairo</option>
+                        <option value="alexandria">Alexandria</option>
+                        <option value="giza">Giza</option>
+                        <option value="luxor">Luxor</option>
+                        <option value="luxor">Mansoura</option>
+
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Place Order</button>
+            </form>
+        </div>
+        <div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="thankYouModalLabel">Thank You</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="thankYouModalContent">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<!--footer-->
+<footer class="footer p-4 ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>About Us</h5>
+          <a href="Terms&Conditions.html" class="text-reset"><p>Terms and Conditions</p></a>
+          <a href="AboutUs.html" class="text-reset"><p>About Us</p></a>
+
+        </div>
+        <div class="col-md-3">
+          <h5>Follow Us</h5>
+          <a href="https://www.facebook.com" class="text-reset "><i class="fa-brands fa-facebook-f fa-2x" style="color: #ffff;"></i>        
+          </a>
+          <a href="https://twitter.com/" class="text-reset "><i class="fa-brands fa-twitter fa-2x" style="color: #ffff;"></i></a>
+          <a href="https://www.instagram.com/" class="text-reset "><i class="fa-brands fa-instagram fa-2x" style="color: #ffff;"></i> </a>
+        </div>
+        <div class="col-md-3">
+          <h5>Location</h5>
+          <a href="https://www.google.com/maps?q=28+Km+by+Cairo+/+Alexandria+Desert+Road,+6+October,+B148,+Egypt" class="text-reset"><p>
+         <i class="fa-solid fa-location-dot" style="color: #ffff;"></i> 28 Km by Cairo / Alexandria Desert Road, 6 October, B148, Egypt</p></a>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Info</h5>
+          <a href="tel:+20211111111" class="text-reset"><p><i class="fa-solid fa-phone" style="color: #ffff;"></i> (+202) 111-11111</p></a>
+          <a href="mailto:raheksalem@gmail.com" class="text-reset "><p><i class="fa-regular fa-envelope" style="color: #ffff;"></i> Quantum_Tech@gmail.com</p></a>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="js/checkout.js">
+
+    </script>
+</body>
+</html>
