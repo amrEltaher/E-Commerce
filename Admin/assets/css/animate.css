@@ -243,6 +243,7 @@ div.dataTables_wrapper div.dataTables_info {
   height: 36px; 
 }
 /* tables */
+/* for customer List Page  */
 .table {
     margin: 0;
 }
@@ -282,18 +283,6 @@ div.dataTables_wrapper div.dataTables_info {
 .table tbody tr td a:hover {
     color: #ff9f43;
 }
-.table tbody tr td .product-imgs {
-    width: 40px;
-    height: 40px;
-    background: #ffebd8;
-    font-size: 14px;
-    color: #ff9f43!important;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-}
 .table tbody tr.active {
     border-bottom: 0;
 }
@@ -306,21 +295,25 @@ div.dataTables_wrapper div.dataTables_info {
 .table-height {
     min-height: 300px;
 }
-@media(max-width:991px) {
-    .table-height {
-    min-height: auto;
-    margin-bottom: 15px;
-}
-}
 
 .table-top {
     margin-bottom: 25px;
 }
-@media(max-width:575px) {
-    .table-top {
-    flex-direction: column;
-}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* for search in table */
 .search-set .btn-filter {
     background: #ff9f43;
@@ -330,7 +323,7 @@ div.dataTables_wrapper div.dataTables_info {
     margin-right: 10px;
 }
 
-
+/* search above the table */
 .search-set .btn-filter span {
     display: none;
 }

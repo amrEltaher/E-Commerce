@@ -155,22 +155,14 @@ body {
   overflow: hidden;
   transition: all 0.35s ease-in-out;
   width: 100%;
-  background: var(--bs-dark-bg-subtle);
+  /* background: var(--bs-dark-bg-subtle); */
 }
 
 /* Sidebar Elements Style */
 .sidebar-logo a {
   text-decoration: none;
 }
-a {
-  font-size: 1.15rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: #e9ecef;
-  cursor: pointer;
-  transition: all .2s ease;
-  text-decoration: none;
-}
+
 
 li {
   list-style: none;

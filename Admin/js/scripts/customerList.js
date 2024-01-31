@@ -59,13 +59,13 @@ $(document).ready(function () {
             row.append(checkboxCell);
 
             // Loop through rowData and create cells
-            let tdName = $("<td>").addClass("productimgname");
+            let tdName = $("<td>").addClass("");
 
             tdName.append(
-                $("<a>").attr("href", "javascript:void(0);").addClass("product-img").append(
+                $("<span>").addClass("product-img").append(
                     $("<img>").attr("src", `${"assets/img/favIcon.png" || test[j].src}`).attr("alt", "product")
                 ),
-                $("<a>").attr("href", "javascript:void(0);").text(test[j].userName)
+                $("<span>").text(test[j].userName)
             );
             let tdId = $("<td>").text(test[j].id);
             let tdPhone = $("<td>").text(test[j].phone);
