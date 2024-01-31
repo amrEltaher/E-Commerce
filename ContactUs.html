@@ -1,0 +1,120 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link rel="stylesheet" href="style.css" />
+    
+      <link rel="stylesheet" href="css/styling.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    </head>
+    <body>
+      <div class="header sticky-top">
+        <div class="Search-box d-inline-flex ">
+            
+          <div class="logo">
+            <a href="Homepage.html" style=" text-decoration: none;">
+              <h4 style="font-family: cinzel;"><p>Quantum Tech <i class="fas fa-laptop" ></i></p></h4>
+            </a>
+        </div>     
+        
+        </div>
+        <div class="menu-bar ">
+          <ul class="list-unstyled d-inline-flex" >
+            <li><a href="HomePage.html"><i class="fa-solid fa-house"></i> Home
+            </a></li>
+          
+          <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>  My cart</a></li>
+          <li><a href="ContactUs.html"><i class="fa-solid  fa-pen-to-square"></i>  Contact Us</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-5">
+            <h1 class="mb-5">Contact Us</h1>
+            <form  onsubmit="sendMail(); return false;">         
+            
+              <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input name="name" id ="Sendername" type="text" class="form-control" required />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" required />
+                <div id="emailHelp" class="form-text">
+                  Don't worry, we won't share it with anyone else.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="mb-3">
+                  <label class="form-label">Subject</label>
+                  <input name="Subject" type="text" id="subject" class="form-control"  required/>
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Your Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  class="form-control"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+
+              <button class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+          <div class="col-1"></div>
+
+          <div class="col-6 position-relative">
+            <img id="mailimg"
+              src="img/mail.svg"
+              class="w-75 position-absolute top-50 start-50 translate-middle"
+            />
+          </div>
+        </div>
+      </div>
+      <script>
+       function sendMail() {
+  (function () {
+    emailjs.init("ud5XrvvqnkZiY9sb7");
+    console.log("EmailJS initialized successfully");
+  })();
+
+  var params = {
+    Sendername: document.querySelector("#Sendername").value,
+    subject: document.querySelector("#subject").value,
+    message: document.querySelector("#message").value,
+  };
+
+  var serviceID = "service_0kg67eo";
+  var templeteID = "template_d712qad";
+
+  emailjs.send(serviceID, templeteID, params)
+    .then(res => {
+      console.log("Send successful:", res);
+      swal("Send successful");
+    })
+    .catch(error => {
+      console.error("Error sending email:", error);
+      swal("Error sending email. Check console for details.");
+    });
+}
+</script>
+    </body>
+  </html>

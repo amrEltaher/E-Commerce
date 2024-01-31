@@ -1,0 +1,51 @@
+[
+  {
+    "userType": "customer",
+    "userName": "Abdo",
+    "userEmail": "Ahmed@gmail.com",
+    "userPassword": "123456",
+    "id": 177
+  },  {
+    "userType": "seller",
+    "userName": "Forsan",
+    "userEmail": "Forsan@gmail.com",
+    "userPassword": "123456",
+    "id": 1000
+  },
+  {
+    "userType": "seller",
+    "userName": "Sigma",
+    "userEmail": "Sigma@gmail.com",
+    "userPassword": "123456",
+    "id": 2000
+  },
+  {
+    "userType": "seller",
+    "userName": "Amazon",
+    "userEmail": "Amazon@gmail.com",
+    "userPassword": "123456",
+    "id": 3000
+  },
+  {
+    "userType": "seller",
+    "userName": "Noon",
+    "userEmail": "Noon@gmail.com",
+    "userPassword": "123456",
+    "id": 4000
+  },
+  {
+    "userType": "seller",
+    "userName": "Carrefour",
+    "userEmail": "Carrefour@gmail.com",
+    "userPassword": "123456",
+    "id": 5000
+  },  {
+    "userType": "seller",
+    "userName": "Souq",
+    "userEmail": "Souq@gmail.com",
+    "userPassword": "123456",
+    "id": 7000
+  }
+
+
+]

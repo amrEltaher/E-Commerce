@@ -1,0 +1,24 @@
+*{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 200;
+  box-sizing: border-box;
+  color: black;
+  /* #DCF2F1 #7FC7D9 #365486 */
+  /* #FFCC57  #1A244D */
+}
+body{
+  background-color: rgb(232, 232, 215);
+}
+#signup_card{
+  background: #FFCC57 ;
+}
+#reg_btn{
+  background-color:#1A244D;
+  color: white !important; ;
+}
+#reg_btn:hover{
+  background-color:#f9b004 ;
+}
+#nameError,#emailError,#passwordError,#confirmpasswordError{
+  font-size: 12px;
+}

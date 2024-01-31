@@ -1,0 +1,39 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 200;
+    box-sizing: border-box;
+    color: black;
+    /* #DCF2F1 #7FC7D9 #365486 */
+    /* #FFCC57  #1A244D */
+}
+.signin_container{
+    background-color: rgb(232, 232, 215);
+}
+#signin_card{
+    background: #FFCC57 ;
+}
+#login_btn{
+    background-color:#1A244D;
+    color: white !important; ;
+}
+#login_btn:hover{
+    background-color:#f9b004 ;
+}
+#nameError,#emailError,#passwordError,#confirmpasswordError{
+    font-size: 12px;
+}
+.animated-heading .logo img {
+    width: 100px !important;
+    height: 50px!important;
+    max-width: 100%;
+    height: auto;
+    max-height: 50px;
+    border-radius: 10px;
+}
+.signin_container {
+    height: 100vh;
+}
+
+.signin_container .row {
+    height: 100%;
+}
