@@ -58,7 +58,7 @@ function submitForm() {
       text: 'Please enter a valid email address!',
     })
   }
-  else if (!validatePassword(password)) {
+  else if (validatePassword(password)) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -103,7 +103,7 @@ function submitForm() {
       
       Swal.fire({
         icon: 'success',
-        title: 'Your profile has been updated!',
+        title: 'Your profile has  been updated!',
         showConfirmButton: false,
         timer: 1500
       })
@@ -111,7 +111,7 @@ function submitForm() {
     else{
       Swal.fire({
         icon: 'info',
-        title: 'Your profile has not been updated!',
+        title: 'Your profile has not  been updated!',
         showConfirmButton: false,
         timer: 1500
       })
@@ -121,7 +121,7 @@ function submitForm() {
 }
 
 function validateName(name) {
-  let nameRegex = /^[^\s]+\s[^\s]+$/;
+  let nameRegex = /^[a-zA-Z]+\s[a-zA-Z]+$/;
   return nameRegex.test(name) && name.length > 7 && name.length < 20;
 }
 function validateEmail(email) {
@@ -130,11 +130,10 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  return password.length >= 6; 
+  return /^(?=.\d)(?=.[!@#$%^&])(?=.[a-z])(?=.*[A-Z]).{8,}$/.test(password);
   
 }
 function validatePhone(phone) {
-
   return (phone.length == 11);
 }
 

@@ -13,6 +13,13 @@
     "id": 1000
   },
   {
+    "userType": "Admin",
+    "userName": "Ibrahim",
+    "userEmail": "Ibrahim@gmail.com",
+    "userPassword": "123456",
+    "id": 5555
+  },
+  {
     "userType": "seller",
     "userName": "Sigma",
     "userEmail": "Sigma@gmail.com",

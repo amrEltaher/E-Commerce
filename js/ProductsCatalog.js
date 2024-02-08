@@ -1,6 +1,6 @@
 user = JSON.parse(localStorage.getItem('currentUser'));
-let sellersArray =Object.keys(JSON.parse(localStorage.getItem('sellers'))); 
-if(!user){
+sellersIDS = JSON.parse(localStorage.getItem('sellers'));
+ if(!user){
 location.href = '/login.html'
  }
  userId = user.id;
@@ -15,11 +15,8 @@ let RangeObj = {
   let sellers = pramas.getAll("Seller");
   let category = pramas.getAll("category");
   let search = pramas.get("search");
-  console.log(search);
   let range =  pramas.get("Range") == null ? 4 : pramas.get("Range");
-  sellers.forEach((item) => {
-    document.getElementById(item).checked = true;
-  });
+ 
   category.forEach((item) => {
     document.getElementById(item).checked = true;
   });
@@ -30,14 +27,17 @@ let RangeObj = {
       category.length === 0 ? ["laptops", "watchs", "screens"] : category;
     sellers =
       sellers.length === 0
-        ? sellersArray
+        ? Object.keys(sellersIDS)
         : sellers;
     let filteredProducts = [];
     for (const key in ObjectOfProducts) {
+
       if (category.indexOf(key) != -1) {
         for (const item in ObjectOfProducts[key]) {
           if (
-            sellers.indexOf(ObjectOfProducts[key][item]["sellerId"]) != -1
+            sellers.indexOf(ObjectOfProducts[key][item]["sellerId"]) != -1 &&
+            !ObjectOfProducts[key][item]["hidden"] &&
+            !ObjectOfProducts[key][item]["deleted"]
           ) {
             if (
               parseInt(ObjectOfProducts[key][item]["price"]) >=
@@ -58,6 +58,7 @@ let RangeObj = {
     return filteredProducts;
   }
   const RenderProducts = function (ArrayOfProducts) {
+
      cart = JSON.parse (localStorage.getItem("cart"))
      if(cart == null){
       cart = {}
@@ -85,7 +86,7 @@ let RangeObj = {
         "&id=" +
         ArrayOfProducts[i].id
       } class="text-decoration-none">
-      <img src="${ArrayOfProducts[i].pic}" alt="" class="col-12 item-img" />
+      <img src="${ArrayOfProducts[i].pic}" alt="" class="col-12 item-img" style="height:300px" />
       <div class="px-3">
         <div class="h7 item-title">${ArrayOfProducts[i].title}</div>
 
@@ -105,6 +106,7 @@ let RangeObj = {
       );
     }
   };
+
   let filteredProducts = filter(data, sellers, category, range);
   $("#count").text(filteredProducts.length);
   // in case we have search Query 
@@ -152,3 +154,22 @@ let RangeObj = {
 
     window.location.reload();
   })
+  for (let s in sellersIDS) {
+    const isChecked = sellers.includes(s);
+  
+    $('.SellersFilter').append(
+      `
+      <label for=${s}>
+        <input
+          type="checkbox"
+          name="Seller"
+          value=${s}
+          id=${s}
+          class=""
+          ${isChecked ? 'checked' : ''}
+        />
+        ${sellersIDS[s].Name}
+      </label>
+      `
+    );
+  }

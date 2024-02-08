@@ -1,3 +1,48 @@
+//general and change password
+var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+console.log(currentUser);
+
+document.getElementById("userNameId").value = currentUser.userName;
+document.getElementById("userEmailId").value = currentUser.userEmail;
+document.getElementById("userName").value = currentUser.userName.split(" ")[0];
+document.getElementById("saveChangesbutton").addEventListener("click", function () {
+    changePassword();
+    changeUserInfo();
+});
+function changeUserInfo() {
+    var newUserName = document.getElementById("userNameId").value;
+    var newUserEmail = document.getElementById("userEmailId").value;
+
+    // Check if the values are different before updating
+    if (newUserName !== currentUser.userName || newUserEmail !== currentUser.userEmail) {
+        currentUser.userName = newUserName;
+        currentUser.userEmail = newUserEmail;
+        updateLocalStorage();
+    }
+}
+
+function changePassword() {
+    var currentPassInput = document.getElementById("inputCurrentPassword").value;
+    var newPassInput = document.getElementById("inputNewPassword").value;
+    var confirmPassInput = document.getElementById("inputNewPasswordConfirm").value;
+
+    if (currentPassInput == currentUser.userPassword) {
+        if (newPassInput == confirmPassInput) {
+            currentUser.userPassword = newPassInput;
+            // Update local storage with the modified currentUser
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            alert("Password changed successfully");
+        } else {
+            alert("New passwords do not match");
+        }
+    } else {
+        alert("Current password is incorrect");
+    }
+}
+
+
+//order history
+
 let user = JSON.parse(localStorage.getItem('currentUser'))
 let products = JSON.parse(localStorage.getItem('products'))
 let order = {}
@@ -59,3 +104,10 @@ $('.cancel').on('click', function(e) {
     orders[item].status = "canceled";
     localStorage.setItem('orders', JSON.stringify(orders));
 });
+$('#signOut').click(
+    function(){
+        localStorage.removeItem('currentUser')
+        location.href = '/login.html'
+    }
+    
+)

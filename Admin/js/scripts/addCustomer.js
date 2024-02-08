@@ -1,17 +1,13 @@
-import {  User } from "../../Modal.js";
+import { User } from "../../Modal.js";
 
 $(document).ready(function () {
-  if ($(".select-role").length > 0) {
-    $(".select-role").select2({
-      minimumResultsForSearch: -1,
-      width: "100%",
-    });
-    $(".btn-submit").click(function () {
-      submitForm();
-    });
-  }
-
-  
+  $(".btn-submit").click(function () {
+    submitForm();
+  });
+  $('#dropdownList .dropdown-item').click(function (e) {
+    var selectedText = $(this).text();
+    $('#dropdownMenuButton').text(selectedText);
+  });
 
 });
 
@@ -20,7 +16,8 @@ function submitForm() {
   let email = $('#email').val();
   let phone = $('#phone').val();
   let password = $('#password').val();
-  let userType = $('#userRole').val();
+  let userType = $('#dropdownMenuButton').text();
+
   if (!validateName(userName)) {
     Swal.fire({
       icon: 'error',
@@ -35,11 +32,11 @@ function submitForm() {
       text: 'Email is not valid or repeated!',
     })
   }
-  else if (!validatePassword(password)) {
+  else if (validatePassword(password)) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Password must be at least 6 characters!',
+      text: 'Password must be at least 8 characters & complex!',
     })
   }
   else if (!validatePhone(phone)) {
@@ -51,15 +48,11 @@ function submitForm() {
   }
 
   else {
-    let userArray = JSON.parse(localStorage.getItem('userArray')); 
-    let currentUser = new User();
-    currentUser.userName = userName;
-    currentUser.userEmail = email;
+    let userArray = JSON.parse(localStorage.getItem('userArray'));
+    let currentUser = new User(userType, userName, email, password, genId(), userType);
     currentUser.phone = phone;
-    currentUser.userPassword = password;
-    currentUser.userType = userType;
-    currentUser.id =  genId();
     userArray.push(currentUser);
+
     localStorage.setItem('userArray', JSON.stringify(userArray));
     Swal.fire({
       icon: 'success',
@@ -70,14 +63,17 @@ function submitForm() {
         window.location.href = "customerList.html";
       }
     })
+    if (currentUser.userType == "Seller") {
+      addToSellerList(currentUser);
+    }
 
-   
+
 
   }
 }
 
 function validateName(name) {
-  let nameRegex = /^[^\s]+\s[^\s]+$/;
+  let nameRegex = /^[a-zA-Z]+\s[a-zA-Z]+$/;
   return nameRegex.test(name) && name.length > 7 && name.length < 20;
 }
 function validateEmail(email) {
@@ -86,16 +82,17 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  return password.length >= 6; 
+  return /^(?=.\d)(?=.[!@#$%^&])(?=.[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+  
 }
 function validatePhone(phone) {
 
-  let phoneRegex = /^\d{11}$/;
+  let phoneRegex =  /^(010|011|012)[0-9]{8}$/;
   if (phone.length != 0)
     return phoneRegex.test(phone);
   return true;
 }
-function  genId(){
+function genId() {
   return Math.floor(Math.random() * 1000000000);
 }
 function checkEmail(email) {
@@ -105,4 +102,10 @@ function checkEmail(email) {
     return true;
   }
   return false;
+}
+function addToSellerList(seller) {
+  console.log(seller);
+  let sellers = JSON.parse(localStorage.getItem('sellers')) || [];
+  sellers[seller.id] = { Name: seller.userName, Products: [], Total_Sold: 0 };
+  localStorage.setItem('sellers', JSON.stringify(sellers));
 }

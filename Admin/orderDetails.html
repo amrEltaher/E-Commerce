@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favIcon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Orders List</title>
+  <title> Orders Details</title>
 
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/admin.css">
   <!-- bootstrap -->
   <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
@@ -19,6 +19,7 @@
 </head>
 <style>
 </style>
+
 <body>
   <div class="wrapper">
     <aside id="sidebar" class="js-sidebar">
@@ -38,26 +39,25 @@
             </a>
           </li>
           <li class="sidebar-item ">
-            <a href="productList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="productList.html" class="sidebar-link collapsed">
               <i class="fas fa-boxes pe-2"></i>
               Products
             </a>
           </li>
           <li class="sidebar-item active">
-            <a href="javascript:void(0)" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="javascript:void(0)" class="sidebar-link collapsed">
               <i class="fas fa-shopping-cart pe-2"></i>
               Orders
             </a>
           </li>
-          <!-- add another li with users icon -->
           <li class="sidebar-item">
-            <a href="customerList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="customerList.html" class="sidebar-link collapsed">
               <i class="fas fa-users pe-2"></i>
               Users
             </a>
           </li>
           <li class="sidebar-item  ">
-            <a href="profileAdmin.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="profileAdmin.html" class="sidebar-link collapsed">
               <i class="fas fa-cog pe-2"></i>
               Settings
             </a>
@@ -124,13 +124,13 @@
                     <!-- Customer Info -->
                     <div class="col-md-3 customerInfo ">
                       <h6>Customer Info</h6>
-                      
+
                     </div>
 
                     <!-- Company Info -->
                     <div class="col-md-3 sellerInfo ">
                       <h6>Seller Info</h6>
-                      
+
                     </div>
 
                     <!-- Bill Info -->
@@ -156,14 +156,13 @@
                   <div id="dynamic-table-container" class="table-responsive">
 
                   </div>
-                  
+
                 </div>
 
                 <!-- Action Buttons -->
                 <div class="row mt-4">
                   <div class="col-lg-12 d-flex justify-content-end">
-                    <a href="javascript:void(0);" onclick="window.history.back(); return false;" class="btn btn-primary me-2">koloTmam</a>
-                    <a href="javascript:void(0);" class="btn btn-secondary">Cancel</a>
+                    <a href="#" onclick="window.history.back(); return false;" class="btn btn-primary me-2">koloTmam</a>
                   </div>
                 </div>
               </div>
@@ -201,19 +200,17 @@
     </div>
   </div>
 </body>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
 
 
-  <script src="assets/js/jquery.dataTables.min.js"></script>
-  <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 
 
-  <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-  <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
-  <script src="js/scripts/orderDetails.js"></script>
-  <script type="module" src="js/scripts/mainScript.js">
-  </script>
+<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="js/scripts/orderDetails.js"></script>
+<script type="module" src="js/scripts/mainScript.js">
+</script>
 
 </html>

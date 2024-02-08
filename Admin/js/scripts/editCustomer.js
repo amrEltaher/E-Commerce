@@ -1,31 +1,11 @@
 $(document).ready(function () {
-  if ($(".select-role").length > 0) {
-    $(".select-role").select2({
-      minimumResultsForSearch: -1,
-      width: "100%",
-    });
-    $(".btn-submit").click(function () {
-      submitForm();
-    });
-  }
-  let userId = window.location.search.split("=")[1];
-  let userArray = JSON.parse(localStorage.getItem("userArray"));
-  let userObj = userArray.find((obj) => obj.id == userId);
+  checkId();
+  $(".btn-submit").click(function () {
+    submitForm();
+  });
 
-  if (!userObj) {
-    window.location.href = "customerList.html";
-  }
-  else if (userObj.userType == "Admin") {
-    window.location.href = "profileAdmin.html";
-  }
-  else {
-    $("#userName").val(userObj.userName);
-    $("#phone").val(userObj.phone);
-    $("#email").val(userObj.userEmail);
-    $("#userRole").val(userObj.userType).trigger("change");
-    $("#password").val(userObj.userPassword);
-  }
-
+  let urlParams = new URLSearchParams(window.location.search);
+  let sellers = JSON.parse(localStorage.getItem('sellers')) || [];
 
 });
 
@@ -49,7 +29,7 @@ function submitForm() {
       text: 'Please enter a valid email address!',
     })
   }
-  else if (!validatePassword(password)) {
+  else if (validatePassword(password)) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -66,8 +46,8 @@ function submitForm() {
 
   else {
     let urlParams = new URLSearchParams(window.location.search);
-    let userId = urlParams.get('id'); 
-    let userArray = JSON.parse(localStorage.getItem('userArray')); 
+    let userId = urlParams.get('id');
+    let userArray = JSON.parse(localStorage.getItem('userArray'));
     let currentUser = userArray.find(user => user.id == userId);
 
     let isUpdated = false;
@@ -91,17 +71,15 @@ function submitForm() {
       currentUser.userPassword = password;
       isUpdated = true;
     }
-    if(currentUser.userType != userType){
+    if (currentUser.userType != userType) {
       currentUser.userType = userType;
-      console.log(currentUser.userType);
-      console.log(userType);
       isUpdated = true;
     }
     if (isUpdated) {
       let userIndex = userArray.findIndex(user => user.id === userId);
       userArray[userIndex] = currentUser;
       localStorage.setItem('userArray', JSON.stringify(userArray));
-
+      addToSellerList(currentUser)
       Swal.fire({
         icon: 'success',
         title: 'Your profile has been updated!',
@@ -122,7 +100,7 @@ function submitForm() {
 }
 
 function validateName(name) {
-  let nameRegex = /^[^\s]+\s[^\s]+$/;
+  let nameRegex = /^[a-zA-Z]+\s[a-zA-Z]+$/;
   return nameRegex.test(name) && name.length > 7 && name.length < 20;
 }
 function validateEmail(email) {
@@ -131,12 +109,39 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  return password.length >= 6; // You can adjust the minimum length
+  return /^(?=.\d)(?=.[!@#$%^&])(?=.[a-z])(?=.*[A-Z]).{8,}$/.test(password);
 }
 function validatePhone(phone) {
 
-  let phoneRegex = /^\d{11}$/;
+  let phoneRegex =  /^(010|011|012)[0-9]{8}$/;
   if (phone.length != 0)
     return phoneRegex.test(phone);
   return true;
+}
+function checkId() {
+
+  let urlParams = new URLSearchParams(window.location.search);
+  let userId = urlParams.get("id");
+  let userArray = JSON.parse(localStorage.getItem("userArray"));
+  let userObj = userArray.find((obj) => obj.id == userId);
+
+  if (!userObj) {
+    window.location.href = "customerList.html";
+  }
+  else if (userObj.userType == "Admin") {
+    window.location.href = "profileAdmin.html";
+  }
+  else {
+    $("#userName").val(userObj.userName);
+    $("#phone").val(userObj.phone);
+    $("#email").val(userObj.userEmail);
+    $("#userRole").val(userObj.userType).trigger("change");
+    $("#password").val(userObj.userPassword);
+  }
+}
+function addToSellerList(seller) {
+  let sellers = JSON.parse(localStorage.getItem('sellers')) || [];
+  sellers[seller.id] = { Name: seller.userName, Products: [], Total_Sold: 0 };
+  console.log(sellers);
+  localStorage.setItem('sellers', JSON.stringify(sellers));
 }

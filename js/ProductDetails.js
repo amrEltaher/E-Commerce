@@ -10,7 +10,7 @@
     }
     let Sellers = JSON.parse(localStorage.getItem("sellers"));
     let userId = currentUser.id;
-    let cart = JSON.parse(localStorage.getItem('cart'))|| {} ;
+    let cart = JSON.parse(localStorage.getItem('cart')) ;
     $('#title').text(data.title);
     $('#category').text(data.category);
     $('#seller').text(data.seller);
@@ -33,7 +33,7 @@
      
         if (!cart[userId][cat + "-" + id]) {
             cart[userId][cat + "-" + id] = {
-               Quantity:1
+               quantity:1
             }
             localStorage.setItem('cart', JSON.stringify(cart));
             $(this).text('Remove From Cart')

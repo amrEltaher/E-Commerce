@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favIcon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Orders List</title>
+  <title> Users</title>
 
 
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/admin.css">
   <!-- bootstrap -->
   <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
@@ -19,6 +19,7 @@
 </head>
 <style>
 </style>
+
 <body>
   <div class="wrapper">
     <aside id="sidebar" class="js-sidebar">
@@ -38,26 +39,26 @@
             </a>
           </li>
           <li class="sidebar-item ">
-            <a href="productList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="productList.html" class="sidebar-link collapsed">
               <i class="fas fa-boxes pe-2"></i>
               Products
             </a>
           </li>
           <li class="sidebar-item ">
-            <a href="ordersList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="ordersList.html" class="sidebar-link collapsed">
               <i class="fas fa-shopping-cart pe-2"></i>
               Orders
             </a>
           </li>
           <!-- add another li with users icon -->
           <li class="sidebar-item active">
-            <a href="javascript:void(0)" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="javascript:void(0)" class="sidebar-link collapsed">
               <i class="fas fa-users pe-2"></i>
               Users
             </a>
           </li>
           <li class="sidebar-item  ">
-            <a href="profileAdmin.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="profileAdmin.html" class="sidebar-link collapsed">
               <i class="fas fa-cog pe-2"></i>
               Settings
             </a>
@@ -114,35 +115,29 @@
                 <h6>Manage your Customers</h6>
               </div>
               <div class="page-btn">
-                <a href="addcustomer.html" class="btn btn-added"
-                  ><img src="assets/img/icons/plus.svg" alt="img" />
-                  Add User</a
-                >
+                <a href="addcustomer.html" class="btn btn-added"><img src="assets/img/icons/plus.svg" alt="img" />
+                  Add User</a>
               </div>
             </div>
-  
+
             <div class="card">
               <div class="card-body">
                 <div class="table-top">
                   <div class="search-set">
                     <div class="search-path">
-                      <a class="btn btn-filter" id="filter_search">
+                      <span class="btn btn-filter">
                         <img src="assets/img/icons/filter.svg" alt="img" />
-                        <span
-                          ><img src="assets/img/icons/closes.svg" alt="img"
-                        /></span>
-                      </a>
+                      </span>
                     </div>
+                    <!-- fake search button -->
                     <div class="search-input">
-                      <a class="btn btn-searchset"
-                        ><img src="assets/img/icons/search-white.svg" alt="img"
-                      /></a>
+                      <a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg" alt="img" /></a>
                     </div>
-                  </div>        
+                  </div>
                 </div>
-  
+
                 <div class="table-responsive" id="dynamic-table-container">
-                         <!-- Dynamic table will be added here -->
+                  <!-- Dynamic table will be added here -->
 
                 </div>
               </div>
@@ -177,21 +172,19 @@
           </div>
         </div>
       </footer>
+
     </div>
   </div>
 </body>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
 
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 
-  <script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="js/scripts/customerList.js"></script>
+<script type="module" src="js/scripts/mainScript.js">
+</script>
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-
-  <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-  <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
-  <script src="js/scripts/customerList.js"></script>
-  <script type="module" src="js/scripts/mainScript.js">
-  </script>
-  
 </html>

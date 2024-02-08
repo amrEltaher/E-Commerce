@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
   <link rel="stylesheet" href="assets/css/admin.css">
-  <link rel="stylesheet" href="assets/css/animate.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
   <!--  -->
 </head>
@@ -54,7 +54,6 @@
               Orders
             </a>
           </li>
-          <!-- add another li with users icon -->
           <li class="sidebar-item">
             <a href="customerList.html" class="sidebar-link collapsed" aria-expanded="false">
               <i class="fas fa-users pe-2"></i>
@@ -144,10 +143,10 @@
                         <h4>Updates Your Personal Details.</h4>
                       </div>
                     </div>
-                    <div class="ms-md-auto mt-3 mt-md-0 ">
+                    <!-- <div class="ms-md-auto mt-3 mt-md-0 ">
                       <a href="javascript:void(0);" class="btn btn-primary me-2">Save</a>
                       <a href="Admin.html" class="btn btn-secondary">Cancel</a>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
 
@@ -155,13 +154,13 @@
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label for="firstName">First Name</label>
-                      <input type="text" id="firstName" placeholder="Ebrahim">
+                      <input type="text" id="firstName" placeholder="Ebrahim" readonly>
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label for="lastName">Last Name</label>
-                      <input type="text" id="lastName" placeholder="Dawoud">
+                      <input type="text" id="lastName" placeholder="Dawoud" readonly>
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
@@ -179,7 +178,7 @@
                   <div class="col-lg-6 col-sm-12">
                     <div class="form-group">
                       <label for="userName">User Name</label>
-                      <input type="text" id="userName" placeholder="Username">
+                      <input type="text" id="userName" placeholder="Username" >
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12">
@@ -187,7 +186,7 @@
                       <label for="password">Password</label>
                       <div class="pass-group" style="position: relative;">
                         <input type="password" id="passwordField">
-                        <span class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility()"
+                        <span class="fas fa-eye-slash toggle-password" onclick=""
                           style="position: absolute; right: 30px; top: 50%; transform: translateY(-50%); cursor: pointer;"></span>
                       </div>
 
@@ -244,7 +243,6 @@
 
 
 <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-<script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 
 <script  src="js/scripts/profileScript.js"></script>
 <script type="module" src="js/scripts/mainScript.js"></script>

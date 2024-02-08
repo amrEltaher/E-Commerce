@@ -2,11 +2,17 @@ user = JSON.parse(localStorage.getItem('currentUser'))||{};
   if( user == null || user.userType !== 'seller'){
     location.href = '/products.html'
   }
-
+localStorage.setItem('itemToEdit',{})
 let sellers = JSON.parse(localStorage.getItem('sellers'))
 let products = JSON.parse(localStorage.getItem('products'))
-let orders = JSON.parse(localStorage.getItem('orders'))
-let sellerorders = JSON.parse(localStorage.getItem('sellerOrders')) || {'1000':{orders: []}} 
+let orders = JSON.parse(localStorage.getItem('orders'))||{}
+debugger
+let sellerorders = JSON.parse(localStorage.getItem('sellerOrders')) 
+if(sellerorders[user.id] == undefined){
+    sellerorders[user.id] = {
+        orders: []
+    }
+}
 let SelectedSeller = sellers[user.id] 
 let SellerOrders = sellerorders[user.id].orders.map(item => orders[item])
 let pendingOrders = sellerorders[user.id].orders.filter(item=> orders[item].status === 'pending')
@@ -89,7 +95,8 @@ $('.revenue').text(Revenue)
         data: GetOrdersDates(labels),
         borderWidth: 4,
         borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
+        tension: 0.1,
+        label:'sales by day'
       }]
     },
     options: {
@@ -104,7 +111,7 @@ $('.revenue').text(Revenue)
     if(itemClicked.is('.Products')){
         $('.content').empty()
         $('.content').append(
-            `<table class="table  shadow" style = "overflowy:scroll">
+          `<table id="myTable" style="overflow-y: scroll">
             <thead>
               <tr>
                 <th scope="col">Product Name</th>
@@ -116,20 +123,21 @@ $('.revenue').text(Revenue)
             </thead>
             <tbody>
               ${SellerProducts.filter(item => item !== undefined && !item.deleted)
-                .map (item =>`<tr> <td><a href="product.html?id=${item.id}&category=${item.category}">${item.title}</a"></a></td><td>${item.price}</td>
-                <td><input type="button" class="btn btn-danger delete" data-category="${item.category}" id=${item.id} value="Delete" onclick="Delete(this)"></td>
-                 <td><input type="button" class="btn btn-danger edit" data-category="${item.category}" id=${item.id} value="Edit" onclick = "Edit(this)"></td> 
-                 ${item.hidden ? `<td> <button onclick="ToggleVisibility(this)" data-category="${item.category}" id=${item.id} class="btn "><i class="fa-solid fa-eye-slash"></i></button> </td>` :
-                 `<td> <button onclick="ToggleVisibility(this)" data-category="${item.category}" id=${item.id} class="btn "><i class="fa-solid fa-eye"></i></button> </td>`
-                
-                }
-                 
-                 <tr>`).join('')}
+                .map(item => `<tr>
+                  <td><a href="product.html?id=${item.id}&category=${item.category}">${item.title}</a></td>
+                  <td>${item.price}</td>
+                  <td><input type="button" class="btn btn-danger delete" data-category="${item.category}" id=${item.id} value="Delete" onclick="Delete(this)"></td>
+                  <td><input type="button" class="btn btn-danger edit" data-category="${item.category}" id=${item.id} value="Edit" onclick="Edit(this)"></td> 
+                  ${item.hidden ? `<td><button onclick="ToggleVisibility(this)" data-category="${item.category}" id=${item.id} class="btn"><i class="fa-solid fa-eye-slash"></i></button></td>` :
+                    `<td><button onclick="ToggleVisibility(this)" data-category="${item.category}" id=${item.id} class="btn"><i class="fa-solid fa-eye"></i></button></td>`
+                  }
+                </tr>`).join('')}
             </tbody>
-          </table>
-      `
-        )
+          </table>`
+        );
         
+        $('#myTable').DataTable();
+
     }
     
     if(itemClicked.is('.Orders')){
@@ -141,40 +149,40 @@ $('.revenue').text(Revenue)
         }
         $('.content').empty()
         $('.content').append(
-            `<table class="table table  shadow">
+          `<table id="myTable">
             <thead>
-            <tr>
+              <tr>
                 <td>orderID</td>
                 <td>Order Date</td>
                 <td>Status</td>
                 <td>Total</td>
                 <td>Phone</td>
                 <td>Governorate</td>
-                <td>Details<td>
-            </tr>
+                <td>Details</td>
+              </tr>
             </thead>
             <tbody>
-            ${sellerorders[user.id].orders.map(item => `
+              ${sellerorders[user.id].orders.map(item => `
                 <tr>
-                    <td>${item}</td>
-                    <td>${orders[item].date}</td>
-                    <td>
-                        ${statusRender[orders[item].status]
-                }
-                    </td>
-                    <td>${orders[item].total}</td>
-                    <td>${orders[item].phone}</td>
-                    <td>${orders[item].governorate}</td>
-                    <td>
-                    <a class="btn btn-primary"  data-toggle="modal" href="#exampleModal" onclick= "OrderDetails(this)" id="${item}">
-                    Details
-                  </a>               
-                </td>
+                  <td>${item}</td>
+                  <td>${orders[item].date}</td>
+                  <td>${statusRender[orders[item].status]}</td>
+                  <td>${orders[item].total}</td>
+                  <td>${orders[item].phone}</td>
+                  <td>${orders[item].governorate}</td>
+                  <td>
+                    <a class="btn btn-primary" data-toggle="modal" href="#exampleModal" onclick="OrderDetails(this)" id="${item}">
+                      Details
+                    </a>
+                  </td>
                 </tr>
-            `).join('')}
-        </tbody>        
-            </table>`
-        )
+              `).join('')}
+            </tbody>
+          </table>`
+        );
+        
+        $('#myTable').DataTable();
+
     }
     if(itemClicked.is('.Edit-prod')){
         let itemToEdit =  JSON.parse(localStorage.getItem('itemToEdit')) || {id: 0, category: ''}
@@ -190,12 +198,7 @@ $('.revenue').text(Revenue)
                  <div class="p-3 border rounded ">
                      <div class="text-secondary" >Enter Your Product Name</div>
                      <input type="text" class="form-control rounded mt-3 mb-3" placeholder="Product Name" id="product-name" value="${choosenProduct.title}" required>
-                     <div class="text-secondary">Category</div>
-                     <select name="category" class="form-control rounded mt-3 mb-3" id="categories" disabled required>
-                         <option value="watchs">watchs</option>
-                         <option value="screens">screens</option>
-                         <option value="laptops">laptops</option>
-                     </select>
+
                      <div class="text-secondary">Price</div>
                      <input type="number" min="100" max="1000000" class="form-control rounded mt-3 mb-3" placeholder="price" id="product-price" value=${choosenProduct.price} required>
                      <div class="mt-3">
@@ -259,7 +262,7 @@ $('.revenue').text(Revenue)
                      
                      </div>
                      <div class="mt-3 d-flex flex-row justify-content-start align-items-center">
-                        <input type="file" id="file" onclick="getfilelocation(this)">
+                        <input type="file" id="file" onchange="getfilelocation(this)">
                         <span id="filename"></span>
                      </div>
                      <div class="mt-3">
@@ -273,22 +276,33 @@ $('.revenue').text(Revenue)
        </div>
         `)
     }
+    if(itemClicked.is(`.Logout`)){
+      localStorage.setItem('currentUser',JSON.stringify({}))
+      window.location.href = 'login.html'
+    }
 })
 
-function getfilelocation(tar){
+function getfilelocation(tar) {
   var input = tar;
-          
+  console.log(tar);
+
   if (input.files && input.files[0]) {
       var selectedFile = input.files[0];
-      var fileLocation = URL.createObjectURL(selectedFile);
-      return fileLocation;
+      var reader = new FileReader();
+
+      reader.onloadend = function (e) {
+        localStorage.setItem('pic', JSON.stringify(reader.result));
+
+      };
+      reader.readAsDataURL(selectedFile)
+     
   }
 }
+
+
 const submitnewProduct = function(form) {
     event.preventDefault();
-    var fileInput = document.getElementById('file');
-    var fileLocation = getfilelocation(fileInput);
-    console.log(fileLocation);
+
     let name = $('#product-name').val();
     let category = $('#categories').val();
     let price = $('#product-price').val();
@@ -306,8 +320,8 @@ const submitnewProduct = function(form) {
       title: name,
       price: price,
       specs: specs,
-      pic:fileLocation,
-      sellerId:user.id
+      pic:JSON.parse(localStorage.getItem('pic')),
+      sellerId:user.id.toString()
     };
     sellers[user.id].Products.push({
         category:category,
@@ -370,7 +384,7 @@ const getDateForLastNDays = (n) => {
 function Delete(button) {
     let id = button.id;
     let category = button.getAttribute('data-category');
-    if(!confirm('Are you sure you want to delete this product ?'));
+    alert('Are you sure you want to delete this product ?')
     if (ExistInthePendingOrders(id,category)){
         $('.content').append($(`<div class="alert alert-warning alert-dismissible fade show" role="alert" style="position:fixed; top:0; left:50% ;transform: translate(-50%, 0);">
        this product is in the pending orders  please set to hidden and try again !
@@ -453,6 +467,3 @@ function OrderDetails(btn){
     localStorage.setItem('orderToView',JSON.stringify(order))
 }
 
-
-getDateForLastNDays(10);
-GetOrdersDates(getDateForLastNDays(10));

@@ -121,8 +121,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <script>
-           
-           
+  
 
 document.getElementById("login_btn").addEventListener("click", function (event) {
     // Prevent the default form submission
@@ -176,15 +175,14 @@ function redirectToDashboard(userType, userFirstName) {
     switch (userType) {
         case "customer":
             // Redirect to the home page with the user's name as a parameter
-            //window.location.href = "MyAccount.html?userFirstName=" + encodeURIComponent(userFirstName);
-            window.location.href = "HomePage.html";
+            window.location.href = "/products.html" + encodeURIComponent(userFirstName);
             break;
         case "seller":
             // Redirect to the seller page
-            window.location.href = "Seller.html";
+            window.location.href = "/Seller.html.html";
             break;
-        case "Admin":
-            window.location.href = "./Admin/Admin.html";
+        case "admin":
+            window.location.href = "admin_dashboard.html";
             break;
         default:
             break;

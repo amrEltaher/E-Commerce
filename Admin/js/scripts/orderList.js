@@ -14,28 +14,25 @@ function ordersToArray(orders) {
   return ordersArray;
 }
 
-let orders = JSON.parse(localStorage.getItem("orders")) || ordersLocal;
+let orders = JSON.parse(localStorage.getItem("orders"));
 let Orders = ordersToArray(orders);
 $(document).ready(function () {
   try {
     drawTable(Orders);
     initializeDataTable();
-} catch (error) {
+  } catch (error) {
     let targetContainer = $(".card-body");
-    targetContainer.empty(); 
-    let errorMessage = $("<h1>").text("Couldn't load data");
+    targetContainer.empty();
+    let errorMessage = $("<h1>").text("No orders found");
     targetContainer.append(errorMessage);
     Swal.fire({
-        title: 'Error!',
-        text: 'Sorry Couldn\'t load data',
-        icon: 'error',
-        confirmButtonText: 'OK'
+      title: 'Error!',
+      text: 'Sorry Couldn\'t load data',
+      icon: 'error',
+      confirmButtonText: 'OK'
     });
-}
+  }
 
-  $("#filter_search").click(function () {
-    $(".filter-search").toggleClass("active");
-  });
 
   function drawTable(data) {
     let targetContainer = $("#dynamic-table-container");
@@ -52,13 +49,7 @@ $(document).ready(function () {
     let headers = Object.keys(test[0]);
 
     // Add select all checkbox
-    let thCheckbox = $("<th>").append(
-      $("<label>").addClass("checkboxs").append(
-        $("<input>").attr({ type: "checkbox", id: "select-all" }),
-        $("<span>").addClass("checkmarks")
-      )
-    );
-    tableHeaderRow.append(thCheckbox);
+
     // handle products object
     for (let header of headers) {
       if (header != "products") {
@@ -76,33 +67,19 @@ $(document).ready(function () {
 
   function drawBody(target, test) {
     let tableBody = $("<tbody>");
-    let actionButtons = ["eye", "edit", "delete"];
-    let currentRow = $(this).closest("tr");
-    let productId = currentRow.find("td:eq(1)").text();
-
-
+    let actionButtons = ["eye", "delete"];
 
     for (let j = 0; j < Orders.length; j++) {
       let rowData = Object.values(test[j]);
-
       let row = $("<tr>");
-
-      // Create checkbox cell
-      let checkboxCell = $("<td>").append(
-        $("<label>").addClass("checkboxs").append(
-          $("<input>").attr("type", "checkbox"),
-          $("<span>").addClass("checkmarks")
-        )
-      );
-      row.append(checkboxCell);
 
       for (let i = 0; i < rowData.length; i++) {
         if (typeof rowData[i] != "object") {
           // if the value of the header cell is status then add badge
           let cell = $("<td>");
 
-          if (rowData[i] === "Completed" || rowData[i] === "pending" || rowData[i] === "Cancelled") {
-            let badgeClass = rowData[i] === "Completed" ? "bg-success" : rowData[i] === "pending" ? "bg-warning" : "bg-danger";
+          if (rowData[i] === "delivered" || rowData[i] === "pending" || rowData[i] === "Cancelled") {
+            let badgeClass = rowData[i] === "delivered" ? "bg-success" : rowData[i] === "pending" ? "bg-warning" : "bg-danger";
             cell.append($("<span>").addClass(`badge ${badgeClass}`).text(rowData[i]));
           } else {
             if (rowData[i].length > 20) {
@@ -133,7 +110,7 @@ $(document).ready(function () {
           .addClass("dropdown-item")
           .attr("href", "javascript:void(0);");
 
-        let productId = row.find("td:eq(1)").text();
+        let productId = row.find("td:eq(0)").text();
 
         switch (buttonType) {
           case 'delete':
@@ -144,14 +121,6 @@ $(document).ready(function () {
               deleteAction(productId, row);
             });
             break;
-          // case 'edit':
-          //   button.append(
-          //     $("<img>").attr("src", "assets/img/icons/edit.svg").addClass("me-2").attr("alt", "img"),
-          //     "edit Order"
-          //   ).on("click", () => {
-          //     window.location.href = `editOrders.html?id=${productId}`;
-          //   });
-          //   break;
           case 'eye':
             button.append(
               $("<img>").attr("src", "assets/img/icons/eye1.svg").addClass("me-2").attr("alt", "img"),
@@ -186,7 +155,6 @@ $(document).ready(function () {
           info: "_START_ - _END_ of _TOTAL_ items",
         },
         initComplete: (settings, json) => {
-          $(".dataTables_filter").appendTo("#tableSearch");
           $(".dataTables_filter").appendTo(".search-input");
         },
       });
@@ -228,7 +196,7 @@ $(document).ready(function () {
         else {
           Swal.fire(
             'Error!',
-            'The Order is already Cancelled.',
+            'The Order is already Cancelled or deliverd',
             'error'
           );
         }

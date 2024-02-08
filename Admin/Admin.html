@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favIcon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ebrahim Admin Dashboard</title>
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/admin.css">
   <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -21,7 +21,7 @@
       <!-- Content For Sidebar -->
       <div class="h-100">
         <div class="sidebar-logo">
-          <a href="javascript:void(0)">
+          <a href="/Homepage.html">
             <p>Quantum Tech <i class="fas fa-laptop"></i></p>
           </a>
         </div>
@@ -34,26 +34,25 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="productList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="productList.html" class="sidebar-link collapsed">
               <i class="fas fa-boxes pe-2"></i>
               Products
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="ordersList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="ordersList.html" class="sidebar-link collapsed">
               <i class="fas fa-shopping-cart pe-2"></i>
               Orders
             </a>
           </li>
-          <!-- add another li with users icon -->
           <li class="sidebar-item">
-            <a href="customerList.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="customerList.html" class="sidebar-link collapsed">
               <i class="fas fa-users pe-2"></i>
               Users
             </a>
           </li>
           <li class="sidebar-item  ">
-            <a href="profileAdmin.html" class="sidebar-link collapsed" aria-expanded="false">
+            <a href="profileAdmin.html" class="sidebar-link collapsed">
               <i class="fas fa-cog pe-2"></i>
               Settings
             </a>
@@ -69,8 +68,6 @@
             <span class="icon-bar fas fa-bars"></span>
           </span>
         </a>
-
-
 
         <div class="navbar-collapse navbar">
           <ul class="navbar-nav">
@@ -114,7 +111,7 @@
                 </div>
                 <div class="text-count ms-3">
                   <h3 class="fs-5"> $
-                    <span class="counters" data-count="100">0</span>
+                    <span class="counters" data-count="1">0</span>
                   </h3>
                   <p>
                     Total Income
@@ -131,7 +128,7 @@
                 </div>
                 <div class="text-count ms-3">
                   <h3 class="fs-5">
-                    <span class="counters" data-count="100">0</span>
+                    <span class="counters" data-count="1">0</span>
                   </h3>
                   <p>
                     Users
@@ -148,7 +145,7 @@
                 </div>
                 <div class="text-count ms-3">
                   <h3 class="fs-5">
-                    <span class="counters" data-count="100">0</span>
+                    <span class="counters" data-count="1">0</span>
                   </h3>
                   <p>
                     Seller
@@ -164,7 +161,7 @@
                   <img src="assets/img/icons/dash1.svg" alt="Icon" style="width: 40px; height: 40px;">
                 </div>
                 <div class="text-count ms-3">
-                  <h3 class="fs-5"> 
+                  <h3 class="fs-5">
                     <span class="counters" data-count="100">600</span>
                   </h3>
                   <p>
@@ -218,11 +215,10 @@
     </div>
   </div>
 </body>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="js/scripts/mainScript.js"></script>
-<script src="js/scripts/homeAdmin.js">
-
-
-</script>
+<script src="js/scripts/homeAdmin.js"></script>
 <script src="js/scripts/homeAdminChart.js"></script>
 
 </html>

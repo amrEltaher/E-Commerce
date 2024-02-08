@@ -1,5 +1,4 @@
-let data = JSON.parse(localStorage.getItem("products"))||JSON.parse(localStorage.getItem("Products"));
-console.log(data);
+let data = JSON.parse(localStorage.getItem("products")) || JSON.parse(localStorage.getItem("Products"));
 
 function transformDataToArray(data) {
     let result = [];
@@ -22,7 +21,7 @@ function transformDataToArray(data) {
     return result;
 }
 
-let Products = transformDataToArray(data); 
+let Products = transformDataToArray(data);
 localStorage.setItem("products", JSON.stringify(data));
 $(document).ready(function () {
     try {
@@ -32,7 +31,7 @@ $(document).ready(function () {
         let targetContainer = $(".card-body");
 
         targetContainer.empty();
-        let errorMessage = $("<h1>").text("Couldn't load data");
+        let errorMessage = $("<h1>").text("No Product found");
         targetContainer.append(errorMessage);
         Swal.fire({
             title: 'Error!',
@@ -42,9 +41,6 @@ $(document).ready(function () {
         });
     }
 
-    $("#filter_search").click(function () {
-        $(".filter-search").toggleClass("active");
-    });
 
     function drawTable(data) {
         let targetContainer = $("#dynamic-table-container");
@@ -70,7 +66,7 @@ $(document).ready(function () {
         tableHeaderRow.append(thCheckbox);
         // handle sepcs object
         for (let header of headers) {
-            if (header != "specs")  {
+            if (header != "specs") {
                 let th = $("<th>").text(header);
                 tableHeaderRow.append(th);
             }
@@ -85,7 +81,7 @@ $(document).ready(function () {
 
     function drawBody(target, test) {
         let tableBody = $("<tbody>");
-        let actionButtons = [ "eye", "delete"];
+        let actionButtons = ["eye", "delete"];
         let currentRow = $(this).closest("tr");
         let productId = currentRow.find("td:eq(1)").text();
 
@@ -149,7 +145,7 @@ $(document).ready(function () {
                             deleteAction(productId, row);
                         });
                         break;
-                   
+
                     case 'eye':
                         button.on("click", () => {
                             window.location.href = `./productDetail.html?category=${productCat}&id=${productId}`;
@@ -181,7 +177,6 @@ $(document).ready(function () {
                     info: "_START_ - _END_ of _TOTAL_ items",
                 },
                 initComplete: (settings, json) => {
-                    $(".dataTables_filter").appendTo("#tableSearch");
                     $(".dataTables_filter").appendTo(".search-input");
                 },
             });
@@ -232,7 +227,7 @@ $(document).ready(function () {
                 }, 1000);
             }
         });
-        
+
     }
     function handleDeleteOrders(orders, productId) {
         for (let orderKey in orders) {
